@@ -142,12 +142,14 @@ function Process() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-px overflow-hidden border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
           {process.map((step, i) => (
-            <Reveal key={step.index} delay={i * 70} className="bg-ink-soft">
-              <div className="flex h-full flex-col p-8">
-                <span className="font-mono text-sm text-accent">{step.index}</span>
-                <h3 className="font-display mt-10 text-2xl text-bone">
+            <Reveal key={step.index} delay={i * 70} className="bg-ink">
+              <div className="group flex h-full flex-col p-8 lg:p-10">
+                <span className="font-mono text-3xl text-faint transition-colors duration-300 group-hover:text-accent">
+                  {step.index}
+                </span>
+                <h3 className="font-display mt-12 text-2xl tracking-tight text-bone">
                   {step.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">

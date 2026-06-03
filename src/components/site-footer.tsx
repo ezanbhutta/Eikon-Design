@@ -60,11 +60,17 @@ export function SiteFooter() {
           </FooterColumn>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} {site.name}. All rights reserved.
+        <div className="mt-16 space-y-4 border-t border-line pt-8">
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-faint">
+            Typeset in Bricolage Grotesque · Switzer · Geist Mono — built with
+            Next.js
           </p>
-          <p>{site.location}</p>
+          <div className="flex flex-col gap-2 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {year} {site.name}. All rights reserved.
+            </p>
+            <p>{site.location}</p>
+          </div>
         </div>
       </Container>
     </footer>
