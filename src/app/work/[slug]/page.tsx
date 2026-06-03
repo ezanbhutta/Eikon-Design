@@ -35,7 +35,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
   const index = projects.findIndex((p) => p.slug === slug);
   const next = projects[(index + 1) % projects.length];
-  const [poster, social, card] = project.gallery;
 
   return (
     <>
@@ -72,14 +71,14 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
 
-      {/* Logo */}
-      <section className="py-12 lg:py-16">
+      {/* Presentation board */}
+      <section className="py-10 lg:py-16">
         <Container>
           <Reveal>
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-line/60 bg-ink-soft">
+            <div className="relative aspect-[1600/1078] w-full overflow-hidden rounded-3xl border border-line/60 bg-ink-soft">
               <Image
-                src={project.image}
-                alt={`${project.name} logo`}
+                src={project.board}
+                alt={`${project.name} brand identity presentation`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 88rem"
@@ -87,27 +86,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
               />
             </div>
           </Reveal>
-        </Container>
-      </section>
-
-      {/* Mockup gallery */}
-      <section className="py-8 lg:py-12">
-        <Container>
-          <Reveal>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-faint">
-              In context
-            </p>
-          </Reveal>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.4fr]">
-            <GalleryTile src={poster} alt={`${project.name} poster`} ratio="9/16" />
-            <GalleryTile src={social} alt={`${project.name} social post`} ratio="9/16" />
-            <GalleryTile
-              src={card}
-              alt={`${project.name} business card`}
-              ratio="4/3"
-              className="sm:col-span-2 lg:col-span-1"
-            />
-          </div>
         </Container>
       </section>
 
@@ -119,28 +97,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
             <Detail term="Services" value={project.services.join(", ")} />
             <Detail term="Discipline" value="Logo & Brand Identity" />
           </div>
-        </Container>
-      </section>
-
-      {/* Full board */}
-      <section className="py-8 lg:py-12">
-        <Container>
-          <Reveal>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-faint">
-              The full system
-            </p>
-          </Reveal>
-          <Reveal delay={80}>
-            <div className="relative mt-6 aspect-[1600/1078] w-full overflow-hidden rounded-3xl border border-line/60 bg-ink-soft">
-              <Image
-                src={project.board}
-                alt={`${project.name} brand identity board`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 88rem"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
         </Container>
       </section>
 
@@ -167,35 +123,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
     </>
-  );
-}
-
-function GalleryTile({
-  src,
-  alt,
-  ratio,
-  className = "",
-}: {
-  src: string;
-  alt: string;
-  ratio: "9/16" | "4/3";
-  className?: string;
-}) {
-  return (
-    <Reveal className={className}>
-      <div
-        className="relative w-full overflow-hidden rounded-2xl border border-line/60 bg-ink-soft"
-        style={{ aspectRatio: ratio.replace("/", " / ") }}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="(max-width: 640px) 100vw, 30vw"
-          className="object-cover"
-        />
-      </div>
-    </Reveal>
   );
 }
 

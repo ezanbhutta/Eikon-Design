@@ -42,12 +42,12 @@ export function WorkCard({
       data-cursor-label="View"
       className={cn("group block", className)}
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line/60 bg-ink-soft">
+      <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-line/60 bg-ink-soft">
         {/* Parallax image (slightly scaled so the drift never exposes edges) */}
         <motion.div style={{ y, scale: 1.12 }} className="absolute inset-0">
           <Image
-            src={project.image}
-            alt={`${project.name} — ${project.sector}`}
+            src={project.board}
+            alt={`${project.name} — ${project.sector} brand identity`}
             fill
             priority={priority}
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"

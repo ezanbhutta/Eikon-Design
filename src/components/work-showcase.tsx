@@ -50,9 +50,9 @@ export function WorkShowcase() {
                         0{i + 1}
                       </span>
 
-                      <div className="relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-lg border border-line/60 bg-ink-soft sm:w-36 lg:w-44">
+                      <div className="relative aspect-[16/10] w-28 shrink-0 overflow-hidden rounded-lg border border-line/60 bg-ink-soft sm:w-44 lg:w-56">
                         <Image
-                          src={project.image}
+                          src={project.board}
                           alt={`${project.name} — ${project.sector}`}
                           fill
                           sizes="(max-width: 640px) 33vw, 13rem"
