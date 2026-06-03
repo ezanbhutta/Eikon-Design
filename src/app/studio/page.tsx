@@ -136,15 +136,15 @@ export default function StudioPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-line py-24 text-center lg:py-32">
+      <section className="border-t border-line py-24 lg:py-32">
         <Container>
           <Reveal>
-            <h2 className="font-display mx-auto max-w-3xl text-balance text-4xl leading-tight text-bone sm:text-5xl lg:text-6xl">
+            <h2 className="font-display max-w-3xl text-balance text-4xl leading-tight text-bone sm:text-5xl lg:text-6xl">
               Let us give your brand a mark worth keeping.
             </h2>
           </Reveal>
           <Reveal delay={120}>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-10">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
@@ -154,7 +154,7 @@ export default function StudioPage() {
             </div>
           </Reveal>
           <Reveal delay={180}>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8">
               <ArrowLink href={site.fiverrGig} external className="text-muted">
                 389 five-star reviews on Fiverr
               </ArrowLink>

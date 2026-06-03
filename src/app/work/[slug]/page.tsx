@@ -159,7 +159,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
 
-      <section className="border-t border-line py-16 text-center">
+      <section className="border-t border-line py-16">
         <Container>
           <ArrowLink href={site.fiverrGig} external className="text-bone">
             Start a project on Fiverr
