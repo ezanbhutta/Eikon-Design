@@ -6,26 +6,26 @@
  *  (bg-ink, text-bone, border-line, text-accent, …) AND CSS vars.
  * ------------------------------------------------------------------ */
 @theme {
-  --color-ink: #0a0a0b;
-  --color-ink-soft: #101013;
-  --color-ink-card: #131317;
-  --color-line: #26262c;
-  --color-line-soft: #1b1b20;
+  --color-ink: #0b0b0c;
+  --color-ink-soft: #101012;
+  --color-ink-card: #111113;
+  --color-line: #222226;
+  --color-line-soft: #17171b;
 
-  --color-bone: #f4f2ec;
-  --color-muted: #9a9a93;
-  --color-faint: #6c6c66;
+  --color-bone: #f2f0ea;
+  --color-muted: #8a8a82;
+  --color-faint: #5f5f58;
 
-  --color-paper: #efece4;
+  --color-paper: #f3efe6;
   --color-paper-ink: #15140f;
   --color-paper-muted: #5d5b52;
 
-  /* Accent derived from the Eikon brand mark (pink → coral gradient). */
-  --color-accent: #ff6a5a;
-  --color-accent-deep: #ec5340;
-  --color-accent-ink: #2a0b06;
+  /* Signal accent — used sparingly (dots, active index, underline, one CTA). */
+  --color-accent: #ff5a36;
+  --color-accent-deep: #e8431f;
+  --color-accent-ink: #1a0a02;
 
-  /* Brand gradient stops — used by the logo mark and ambient glows. */
+  /* Brand gradient stops — used by the Eikon logo mark only. */
   --color-brand-pink: #ff4f93;
   --color-brand-coral: #ff6b4c;
 
@@ -36,9 +36,9 @@
 /* Font tokens reference runtime CSS vars set by next/font, so they
    must be inlined rather than captured at build time. */
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
-    serif;
+  --font-sans: var(--font-switzer), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-switzer), ui-sans-serif,
+    sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
 }
 
@@ -47,18 +47,18 @@
  *  Component classes stay the same; only the values change.
  * ------------------------------------------------------------------ */
 html[data-theme="light"] {
-  --color-ink: #f5f2ea;
-  --color-ink-soft: #ebe7dc;
+  --color-ink: #faf8f2;
+  --color-ink-soft: #f0ece2;
   --color-ink-card: #ffffff;
-  --color-line: #d8d3c6;
-  --color-line-soft: #e6e1d5;
+  --color-line: #ddd8cc;
+  --color-line-soft: #e9e4d8;
 
-  --color-bone: #1a1814;
-  --color-muted: #5b5851;
-  --color-faint: #8c887d;
+  --color-bone: #15140f;
+  --color-muted: #57564e;
+  --color-faint: #8a887d;
 
-  --color-paper: #1a1814;
-  --color-paper-ink: #f5f2ea;
+  --color-paper: #15140f;
+  --color-paper-ink: #faf8f2;
   --color-paper-muted: #a7a399;
 
   color-scheme: light;

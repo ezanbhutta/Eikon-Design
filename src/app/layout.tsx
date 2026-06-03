@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/data/site";
 import { SiteHeader } from "@/components/site-header";
@@ -9,17 +10,21 @@ import { Cursor } from "@/components/cursor";
 import { IntroProvider } from "@/components/intro";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({
-  variable: "--font-inter",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
+const switzer = localFont({
+  variable: "--font-switzer",
   display: "swap",
+  src: [
+    { path: "./fonts/Switzer-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Switzer-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/Switzer-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/Switzer-700.woff2", weight: "700", style: "normal" },
+  ],
 });
 
 const geistMono = Geist_Mono({
@@ -71,7 +76,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${fraunces.variable} ${geistMono.variable}`}
+      className={`${bricolage.variable} ${switzer.variable} ${geistMono.variable}`}
     >
       <body className="grain min-h-dvh antialiased">
         <a
