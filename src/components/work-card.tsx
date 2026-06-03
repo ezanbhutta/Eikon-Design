@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -9,7 +10,6 @@ import {
   useReducedMotion,
 } from "motion/react";
 import type { Project } from "@/data/projects";
-import { LogoMark } from "@/components/logo-mark";
 import { cn } from "@/lib/cn";
 
 export function WorkCard({
@@ -19,10 +19,9 @@ export function WorkCard({
 }: {
   project: Project;
   className?: string;
-  /** Slightly larger logo for hero/featured placements. */
+  /** Eager-load + prioritize for above-the-fold placements. */
   priority?: boolean;
 }) {
-  const { from, to, ink } = project.palette;
   const ref = useRef<HTMLAnchorElement>(null);
   const reduce = useReducedMotion();
 
@@ -33,7 +32,7 @@ export function WorkCard({
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    reduce ? ["0%", "0%"] : ["-7%", "7%"],
+    reduce ? ["0%", "0%"] : ["-6%", "6%"],
   );
 
   return (
@@ -43,40 +42,31 @@ export function WorkCard({
       data-cursor-label="View"
       className={cn("group block", className)}
     >
-      <div
-        className="relative aspect-[5/4] overflow-hidden rounded-2xl border border-line/60"
-        style={{
-          backgroundImage: `linear-gradient(155deg, ${from}, ${to})`,
-          color: ink,
-        }}
-      >
+      <div className="relative aspect-[1600/1078] overflow-hidden rounded-2xl border border-line/60 bg-ink-soft">
+        {/* Parallax image (slightly scaled so the drift never exposes edges) */}
+        <motion.div style={{ y, scale: 1.12 }} className="absolute inset-0">
+          <Image
+            src={project.image}
+            alt={`${project.name} — ${project.sector}`}
+            fill
+            priority={priority}
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+          />
+        </motion.div>
+
         {/* Meta corners */}
-        <div className="absolute inset-0 z-10 flex items-start justify-between p-5">
-          <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] opacity-70">
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-start justify-between p-5">
+          <span className="rounded-full bg-ink/55 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-bone/90 backdrop-blur-sm">
             {project.sector}
           </span>
-          <span className="font-mono text-[0.7rem] tracking-widest opacity-70">
+          <span className="font-mono text-[0.7rem] tracking-widest text-bone/70 mix-blend-difference">
             {project.year}
           </span>
         </div>
 
-        {/* Parallax mark */}
-        <motion.div
-          style={{ y }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <LogoMark
-            mark={project.mark}
-            strokeWidth={2.2}
-            className={cn(
-              "transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110",
-              priority ? "h-28 w-28" : "h-20 w-20",
-            )}
-          />
-        </motion.div>
-
         {/* Hover veil */}
-        <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/10" />
+        <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/15" />
       </div>
 
       {/* Caption */}

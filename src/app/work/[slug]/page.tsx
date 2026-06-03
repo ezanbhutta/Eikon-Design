@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { ArrowLink } from "@/components/arrow-link";
-import { LogoMark } from "@/components/logo-mark";
 import { projects, getProject } from "@/data/projects";
 import { site } from "@/data/site";
 
@@ -35,7 +35,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
   const index = projects.findIndex((p) => p.slug === slug);
   const next = projects[(index + 1) % projects.length];
-  const { from, to, ink } = project.palette;
 
   return (
     <>
@@ -72,18 +71,19 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
 
-      {/* Mark canvas */}
+      {/* Presentation image */}
       <section className="py-12 lg:py-16">
         <Container>
           <Reveal>
-            <div
-              className="flex aspect-[16/10] items-center justify-center rounded-3xl border border-line/60 lg:aspect-[16/8]"
-              style={{
-                backgroundImage: `linear-gradient(155deg, ${from}, ${to})`,
-                color: ink,
-              }}
-            >
-              <LogoMark mark={project.mark} strokeWidth={1.8} className="h-40 w-40 lg:h-56 lg:w-56" />
+            <div className="relative aspect-[1600/1078] w-full overflow-hidden rounded-3xl border border-line/60 bg-ink-soft">
+              <Image
+                src={project.image}
+                alt={`${project.name} brand identity presentation`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 88rem"
+                className="object-cover"
+              />
             </div>
           </Reveal>
         </Container>
