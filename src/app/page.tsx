@@ -7,6 +7,7 @@ import { ArrowLink } from "@/components/arrow-link";
 import { WorkCard } from "@/components/work-card";
 import { SiteHero } from "@/components/site-hero";
 import { Magnetic } from "@/components/magnetic";
+import { Logo3D } from "@/components/logo-3d";
 import { featuredProjects } from "@/data/projects";
 import { services, process, stats, testimonials, clients } from "@/data/studio";
 import { site } from "@/data/site";
@@ -17,6 +18,7 @@ export default function Home() {
       <SiteHero />
       <ClientStrip />
       <FeaturedWork />
+      <DimensionShowcase />
       <Services />
       <Process />
       <Philosophy />
@@ -64,6 +66,38 @@ function FeaturedWork() {
               <WorkCard project={project} priority={i === 0} />
             </Reveal>
           ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ----------------------------------------------------------- 3D showcase */
+function DimensionShowcase() {
+  return (
+    <section className="relative overflow-hidden border-t border-line py-24 lg:py-32">
+      <Container>
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="max-w-xl">
+            <Reveal>
+              <SectionLabel index="◇">In three dimensions</SectionLabel>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
+                Every mark, crafted to live anywhere.
+              </h2>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-6 text-muted">
+                A logo has to work on a screen, a sign, a stitch, and a screen
+                you haven&rsquo;t imagined yet. Grab the mark and spin it —
+                it holds up from every angle.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={120}>
+            <Logo3D className="h-[24rem] w-full sm:h-[28rem] lg:h-[32rem]" />
+          </Reveal>
         </div>
       </Container>
     </section>

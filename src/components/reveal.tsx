@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
 /**
@@ -18,10 +18,15 @@ export function Reveal({
   className?: string;
   /** Stagger in milliseconds. */
   delay?: number;
-  as?: React.ElementType;
+  as?: "div" | "li" | "section" | "span" | "ul";
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+
+  // Callback ref keeps the type simple across the union of allowed tags.
+  const setRef = useCallback((node: HTMLElement | null) => {
+    ref.current = node;
+  }, []);
 
   useEffect(() => {
     const node = ref.current;
@@ -43,7 +48,7 @@ export function Reveal({
 
   return (
     <Tag
-      ref={ref as React.Ref<HTMLElement>}
+      ref={setRef}
       data-reveal=""
       className={cn(visible && "is-visible", className)}
       style={{ transitionDelay: `${delay}ms` }}
