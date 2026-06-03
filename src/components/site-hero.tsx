@@ -22,9 +22,9 @@ const fadeUp: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
-const rise: Variants = {
-  hidden: { y: "115%" },
-  show: { y: 0, transition: { duration: 1.05, ease: EASE } },
+const word: Variants = {
+  hidden: { opacity: 0, y: 56 },
+  show: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE } },
 };
 
 export function SiteHero() {
@@ -48,14 +48,12 @@ export function SiteHero() {
             <span className="hidden sm:inline">/ˈaɪ·kɒn/ · the image of a thing</span>
           </motion.div>
 
-          <h1 className="mt-3 overflow-hidden pt-[0.12em] text-[24vw] leading-[0.82] lg:text-[19vw]">
-            <motion.span
-              variants={rise}
-              className="wordmark-sheen font-display block font-extrabold tracking-[-0.04em]"
-            >
-              {site.name}
-            </motion.span>
-          </h1>
+          <motion.h1
+            variants={word}
+            className="wordmark-sheen font-display mt-6 text-[24vw] font-extrabold leading-[0.85] tracking-[-0.04em] lg:text-[19vw]"
+          >
+            {site.name}
+          </motion.h1>
 
           <motion.p
             variants={fadeUp}
