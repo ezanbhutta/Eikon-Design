@@ -1,65 +1,72 @@
 /**
- * Portfolio projects — real work, imported from Drive and optimized to
- * WebP in /public/work via `scripts/import-drive.mjs`.
- *
- * NOTE: `sector`, `year`, `services`, and `summary` are sensible
- * placeholders inferred from each brand — please correct any that are
- * wrong; the images and names are the real deliverables.
+ * Portfolio projects. The source board for each project is cropped by
+ * scripts/crop-boards.mjs into individual pieces:
+ *   image   → the clean primary logo (thumbnail + case-study hero)
+ *   board   → the full branding board
+ *   gallery → [poster, social mockup, business-card mockup]
  */
 
 export interface Project {
   slug: string;
   name: string;
-  /** Client descriptor / category. */
   sector: string;
   year: number;
   services: string[];
-  /** One-line summary shown on cards and the case study. */
   summary: string;
-  /** Optimized presentation image in /public/work. */
+  /** Clean logo crop — primary visual. */
   image: string;
+  /** Full branding board. */
+  board: string;
+  /** Mockup crops: poster, social, business card. */
+  gallery: string[];
   featured?: boolean;
 }
 
-export const projects: Project[] = [
+interface ProjectSeed {
+  slug: string;
+  name: string;
+  sector: string;
+  year: number;
+  services: string[];
+  summary: string;
+  featured?: boolean;
+}
+
+const seeds: ProjectSeed[] = [
   {
     slug: "sooshigo",
     name: "Sooshigo",
-    sector: "Food & Dining",
+    sector: "Sushi Restaurant",
     year: 2025,
     services: ["Logo", "Brand Identity", "Packaging"],
-    summary: "A playful, appetite-led identity for a modern sushi brand.",
-    image: "/work/sooshigo.webp",
+    summary: "A bold, playful identity for a quick-service sushi brand.",
     featured: true,
   },
   {
     slug: "oceanexis",
     name: "OceanExis",
-    sector: "Sustainability",
+    sector: "Ocean Apparel",
     year: 2025,
     services: ["Logo", "Brand Identity", "Guidelines"],
-    summary: "A fluid, considered mark for an ocean-focused venture.",
-    image: "/work/oceanexis.webp",
+    summary: "A fluid, considered identity for an ocean-inspired apparel label.",
     featured: true,
   },
   {
     slug: "pixoro",
     name: "Pixoro",
-    sector: "Creative Tech",
+    sector: "Creative Studio",
     year: 2025,
-    services: ["Logo", "Product Brand"],
-    summary: "A vivid, pixel-inspired identity for a digital platform.",
-    image: "/work/pixoro.webp",
+    services: ["Logo", "Brand Identity"],
+    summary: "A vivid, gradient-led mark for a digital creative brand.",
     featured: true,
   },
   {
     slug: "rav7n",
     name: "Rav7n",
-    sector: "Apparel & Streetwear",
+    sector: "Outdoor Gear",
     year: 2025,
     services: ["Logo", "Brand Identity"],
-    summary: "A bold mark with attitude for a contemporary apparel label.",
-    image: "/work/rav7n.webp",
+    summary: "A modular mark for nomadic, design-led outdoor gear.",
     featured: true,
   },
   {
@@ -69,17 +76,15 @@ export const projects: Project[] = [
     year: 2025,
     services: ["Logo", "Brand Identity"],
     summary: "A strong, energetic identity for a fitness and wellness brand.",
-    image: "/work/bodytone.webp",
     featured: true,
   },
   {
     slug: "cramberly",
     name: "Cramberly",
-    sector: "Food & Beverage",
+    sector: "Lifestyle",
     year: 2025,
-    services: ["Logo", "Packaging"],
-    summary: "A warm, fruit-fresh identity for a food and beverage brand.",
-    image: "/work/cramberly.webp",
+    services: ["Logo", "Brand Identity"],
+    summary: "A clean, friendly identity with a fluid signature mark.",
     featured: true,
   },
   {
@@ -89,27 +94,35 @@ export const projects: Project[] = [
     year: 2025,
     services: ["Logo", "Brand Identity", "Guidelines"],
     summary: "A precise, research-led mark for a modern science lab.",
-    image: "/work/dymora-lab.webp",
   },
   {
     slug: "velox",
     name: "Velox",
-    sector: "Technology",
+    sector: "Bike Courier",
     year: 2025,
     services: ["Logo", "Brand Identity"],
-    summary: "A fast, precise wordmark for a performance-driven company.",
-    image: "/work/velox.webp",
+    summary: "A fast, eco-minded identity for a bicycle courier service.",
   },
   {
     slug: "mistory",
     name: "Mistory",
-    sector: "Media & Story",
+    sector: "Heritage Brand",
     year: 2024,
     services: ["Logo", "Brand Identity"],
-    summary: "An intriguing, narrative-driven mark for a storytelling brand.",
-    image: "/work/mistory.webp",
+    summary: "A refined, heritage-led identity rooted in culture.",
   },
 ];
+
+export const projects: Project[] = seeds.map((p) => ({
+  ...p,
+  image: `/work/${p.slug}-logo.webp`,
+  board: `/work/${p.slug}.webp`,
+  gallery: [
+    `/work/${p.slug}-poster.webp`,
+    `/work/${p.slug}-social.webp`,
+    `/work/${p.slug}-card.webp`,
+  ],
+}));
 
 export const featuredProjects = projects.filter((p) => p.featured);
 
