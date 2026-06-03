@@ -5,6 +5,8 @@ import { Marquee } from "@/components/marquee";
 import { SectionLabel } from "@/components/section-label";
 import { ArrowLink } from "@/components/arrow-link";
 import { WorkCard } from "@/components/work-card";
+import { SiteHero } from "@/components/site-hero";
+import { Magnetic } from "@/components/magnetic";
 import { featuredProjects } from "@/data/projects";
 import { services, process, stats, testimonials, clients } from "@/data/studio";
 import { site } from "@/data/site";
@@ -12,7 +14,7 @@ import { site } from "@/data/site";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <SiteHero />
       <ClientStrip />
       <FeaturedWork />
       <Services />
@@ -21,85 +23,6 @@ export default function Home() {
       <Voices />
       <ClosingCta />
     </>
-  );
-}
-
-/* ----------------------------------------------------------------- Hero */
-function Hero() {
-  return (
-    <section className="relative overflow-hidden pb-20 pt-40 sm:pt-48 lg:pb-28 lg:pt-56">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 -top-32 h-[38rem] w-[38rem] rounded-full opacity-[0.18] blur-[130px]"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 30%, #ff4f93, #ff6b4c 45%, transparent 72%)",
-        }}
-      />
-      <Container className="relative">
-        <Reveal>
-          <SectionLabel>{site.tagline}</SectionLabel>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <h1 className="font-display mt-7 max-w-5xl text-balance text-5xl leading-[1.02] text-bone sm:text-6xl lg:text-8xl">
-            Logos &amp; identities, built to be{" "}
-            <em className="italic text-accent">remembered.</em>
-          </h1>
-        </Reveal>
-
-        <Reveal delay={160}>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-            {site.name} is an independent studio shaping distinctive marks,
-            complete identity systems, and the guidelines that keep them sharp —
-            for founders and brands who refuse to blend in.
-          </p>
-        </Reveal>
-
-        <Reveal delay={240}>
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <Link
-              href="/work"
-              className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
-            >
-              View selected work
-            </Link>
-            <ArrowLink href="/contact" className="text-bone">
-              Start a project
-            </ArrowLink>
-          </div>
-        </Reveal>
-
-        <Reveal delay={320}>
-          <dl className="mt-20 grid max-w-2xl grid-cols-2 gap-8 border-t border-line pt-8 sm:grid-cols-3">
-            <HeroMeta term="Established" value={`${site.founded}`} />
-            <HeroMeta term="Based" value="Worldwide" />
-            <HeroMeta term="Status" value={site.availability} accent />
-          </dl>
-        </Reveal>
-      </Container>
-    </section>
-  );
-}
-
-function HeroMeta({
-  term,
-  value,
-  accent,
-}: {
-  term: string;
-  value: string;
-  accent?: boolean;
-}) {
-  return (
-    <div>
-      <dt className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
-        {term}
-      </dt>
-      <dd className={accent ? "mt-2 text-sm text-accent" : "mt-2 text-sm text-bone"}>
-        {value}
-      </dd>
-    </div>
   );
 }
 
@@ -344,12 +267,14 @@ function ClosingCta() {
         </Reveal>
         <Reveal delay={240}>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
-            >
-              Start a project
-            </Link>
+            <Magnetic>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
+              >
+                Start a project
+              </Link>
+            </Magnetic>
             <ArrowLink href={`mailto:${site.email}`} external className="text-bone">
               {site.email}
             </ArrowLink>

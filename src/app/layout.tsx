@@ -4,6 +4,8 @@ import "./globals.css";
 import { site } from "@/data/site";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { Cursor } from "@/components/cursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -75,6 +77,8 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <SmoothScroll />
+        <Cursor />
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />

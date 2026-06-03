@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { site } from "@/data/site";
 import { EikonLogo } from "@/components/eikon-logo";
 import { Container } from "@/components/container";
+import { Magnetic } from "@/components/magnetic";
 import { cn } from "@/lib/cn";
 
 export function SiteHeader() {
@@ -69,12 +70,14 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="hidden rounded-full bg-bone px-5 py-2.5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5 sm:inline-flex"
-            >
-              Start a project
-            </Link>
+            <Magnetic className="max-sm:hidden">
+              <Link
+                href="/contact"
+                className="inline-flex rounded-full bg-bone px-5 py-2.5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
+              >
+                Start a project
+              </Link>
+            </Magnetic>
 
             <button
               type="button"
