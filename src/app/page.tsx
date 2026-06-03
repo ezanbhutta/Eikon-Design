@@ -54,7 +54,7 @@ function DimensionShowcase() {
             <Reveal delay={160}>
               <p className="mt-6 text-muted">
                 A logo has to work on a screen, a sign, a stitch, and a screen
-                you haven&rsquo;t imagined yet. Grab the mark and spin it —
+                you haven&rsquo;t imagined yet. Move your cursor across it —
                 it holds up from every angle.
               </p>
             </Reveal>
