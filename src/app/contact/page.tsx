@@ -34,6 +34,28 @@ export default function ContactPage() {
               </p>
             </Reveal>
 
+            <Reveal delay={200}>
+              <div className="mt-8 flex flex-col gap-4 rounded-2xl border border-line bg-ink-soft p-6 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+                    389 five-star reviews
+                  </p>
+                  <p className="mt-1.5 text-sm text-muted">
+                    Prefer to order directly? We&rsquo;re a Level&nbsp;2 seller on
+                    Fiverr.
+                  </p>
+                </div>
+                <Link
+                  href={site.fiverrGig}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex shrink-0 items-center justify-center rounded-full border border-line px-5 py-2.5 text-sm font-medium text-bone transition-colors hover:bg-bone hover:text-ink"
+                >
+                  Order on Fiverr →
+                </Link>
+              </div>
+            </Reveal>
+
             <Reveal delay={240}>
               <div className="mt-12 space-y-8">
                 <ContactDetail label="Email">

@@ -1,6 +1,5 @@
 /**
- * Studio content — services, process, proof, testimonials, clients.
- * PLACEHOLDER CONTENT — replace with the studio's real offering and copy.
+ * Studio content — real data from Eikon Designs' Fiverr gig + Behance.
  */
 
 export interface Service {
@@ -15,29 +14,29 @@ export const services: Service[] = [
     id: "logo",
     title: "Logo Design",
     description:
-      "The mark at the centre of everything. Distinctive, scalable, and built to last decades — not trend cycles.",
-    deliverables: ["Primary mark", "Monogram", "Responsive variants", "Favicon set"],
+      "A distinctive primary mark — clean, minimal, and modern — with the app icon, favicon, type, and colours that anchor it.",
+    deliverables: ["Logo concepts", "App icon", "Favicon", "Brand font & colours"],
   },
   {
     id: "identity",
     title: "Brand Identity",
     description:
-      "A complete visual language around the mark: type, colour, layout, motion, and the rules that hold it together.",
-    deliverables: ["Type system", "Colour palette", "Iconography", "Layout grids"],
+      "A complete visual language: palette, type system, and horizontal, vertical, and black-&-white variations that hold up everywhere.",
+    deliverables: ["Type system", "Colour palette", "Logo variations", "Iconography"],
   },
   {
-    id: "guidelines",
-    title: "Brand Guidelines",
+    id: "kit",
+    title: "Branding Kit",
     description:
-      "A precise, beautiful manual so every future touchpoint stays unmistakably on-brand.",
-    deliverables: ["Usage rules", "Do & don't", "Asset library", "Templates"],
+      "Everything you need to launch — brand guidelines, stationery, polished 3D mockups, and organised, editable source files.",
+    deliverables: ["Brand guidelines", "Business card & stationery", "3D mockups", "Vector source files"],
   },
   {
-    id: "packaging",
-    title: "Packaging & Print",
+    id: "social",
+    title: "Social Media Kit",
     description:
-      "Identity translated to the physical world — packaging, stationery, and signage that earns a second look.",
-    deliverables: ["Packaging", "Stationery", "Signage", "Print collateral"],
+      "On-brand profiles, banners, and templates so you show up consistently across every platform you use.",
+    deliverables: ["Profile & banners", "Post templates", "Story templates", "6-platform resize"],
   },
 ];
 
@@ -52,25 +51,25 @@ export const process: ProcessStep[] = [
     index: "01",
     title: "Discover",
     description:
-      "We dig into your market, audience, and ambition — then define the strategy the mark has to deliver on.",
+      "We start with your brand vision — your market, audience, and the feeling the mark has to carry. Share as much or as little as you have.",
   },
   {
     index: "02",
     title: "Design",
     description:
-      "Concepts are explored in black and white first. We pressure-test ideas at every size before colour ever enters.",
+      "Concepts are explored clean and minimal first. We pressure-test every idea at every size before colour and texture come in.",
   },
   {
     index: "03",
     title: "Refine",
     description:
-      "We sharpen the chosen direction down to the curve, the kern, the optical detail — until nothing is left to remove.",
+      "Unlimited revisions on the chosen direction — we sharpen the curve, the kern, the optical detail until nothing is left to remove.",
   },
   {
     index: "04",
     title: "Deliver",
     description:
-      "You receive a complete, organised asset kit plus guidelines, ready to roll out everywhere with confidence.",
+      "You receive an organised kit — variations, 3D mockups, stationery, social, and editable vector source files — ready to roll out.",
   },
 ];
 
@@ -80,10 +79,10 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: "120+", label: "Brands shaped" },
-  { value: "9", label: "Years in practice" },
-  { value: "14", label: "Design awards" },
-  { value: "32", label: "Countries served" },
+  { value: "389", label: "Five-star reviews" },
+  { value: "4.9★", label: "Average rating" },
+  { value: "1 hr", label: "Avg. response time" },
+  { value: "5", label: "Languages spoken" },
 ];
 
 export interface Testimonial {
@@ -92,33 +91,46 @@ export interface Testimonial {
   role: string;
 }
 
+/** Verbatim client reviews from the Eikon Designs Fiverr gig (389 reviews). */
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Eikon gave us a mark our whole company rallied behind. Nine months on, customers still tell us the logo is why they trusted us first.",
-    author: "Dana Reyes",
-    role: "Founder, Nova Payments",
+      "Outstanding designer with an eye for clean and modern aesthetics. He delivered a minimalist brand logo that truly captures the brand's essence — very professional, timely, and highly recommended.",
+    author: "freddiestock",
+    role: "Fiverr client · New Zealand",
   },
   {
     quote:
-      "The most rigorous design process we've experienced. Every decision had a reason — and the result is unmistakably ours.",
-    author: "Marcus Hale",
-    role: "Partner, Atlas Ventures",
+      "Truly worth the investment. I trusted them with full creative control and they delivered something far beyond what I had imagined.",
+    author: "flintbriar",
+    role: "Fiverr client · United Kingdom",
+  },
+  {
+    quote:
+      "The seller understood the concept perfectly and delivered a clean, professional design. The final files were well organised and neatly arranged — highly satisfied with the result.",
+    author: "maddoxsterling5",
+    role: "Fiverr client · Germany",
+  },
+  {
+    quote:
+      "Super happy with the brand guidelines and social media kit. We will definitely come back when needed.",
+    author: "a_alpha",
+    role: "Fiverr client · Aruba",
   },
 ];
 
-/** Client names for the marquee strip. */
+/** Real project names (Behance · ezanbhutta). */
 export const clients: string[] = [
-  "Lumen",
-  "Atlas",
-  "Verdant",
-  "Nova",
-  "Harbor",
-  "Aria",
-  "Tidewater",
-  "Prism",
-  "Bloom",
-  "Strata",
-  "Ember",
-  "Monolith",
+  "Sooshigo",
+  "OceanExis",
+  "Pixoro",
+  "Rav7n",
+  "Bodytone",
+  "Cramberly",
+  "Pexi",
+  "FundRocket",
+  "GoStay",
+  "OfferCloud",
+  "GravDrive",
+  "Mistory",
 ];
