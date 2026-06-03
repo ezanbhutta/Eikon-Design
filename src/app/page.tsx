@@ -237,45 +237,35 @@ function Voices() {
 /* ------------------------------------------------------------------- CTA */
 function ClosingCta() {
   return (
-    <section className="relative overflow-hidden border-t border-line py-28 lg:py-40">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full opacity-[0.16] blur-[130px]"
-        style={{
-          background:
-            "radial-gradient(circle, #ff6b4c, #ff4f93 50%, transparent 72%)",
-        }}
-      />
-      <Container className="relative text-center">
+    <section className="overflow-hidden border-t border-line py-24 lg:py-36">
+      <Container>
         <Reveal>
-          <SectionLabel className="justify-center">
-            Let us build it together
-          </SectionLabel>
+          <SectionLabel>Start a project</SectionLabel>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="font-display mx-auto mt-7 max-w-4xl text-balance text-5xl leading-[1.05] text-bone sm:text-6xl lg:text-7xl">
-            Have a brand worth remembering?
+          <h2 className="font-display mt-8 text-[16vw] font-extrabold leading-[0.84] tracking-[-0.04em] text-bone lg:text-[12vw]">
+            Let&rsquo;s build it.
           </h2>
         </Reveal>
-        <Reveal delay={160}>
-          <p className="mx-auto mt-7 max-w-xl text-lg text-muted">
-            Tell us where you want to go. We will design the mark that gets you
-            noticed — and keeps you there.
-          </p>
-        </Reveal>
-        <Reveal delay={240}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-            <Magnetic>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
-              >
-                Start a project
-              </Link>
-            </Magnetic>
-            <ArrowLink href={`mailto:${site.email}`} external className="text-bone">
-              {site.email}
-            </ArrowLink>
+        <Reveal delay={140}>
+          <div className="mt-10 flex flex-col gap-8 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-md text-muted">
+              Have a brand worth remembering? Tell us where you want to go — and
+              we&rsquo;ll design the mark that gets you there.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+              <Magnetic>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
+                >
+                  Start a project
+                </Link>
+              </Magnetic>
+              <ArrowLink href={`mailto:${site.email}`} external className="text-bone">
+                {site.email}
+              </ArrowLink>
+            </div>
           </div>
         </Reveal>
       </Container>
