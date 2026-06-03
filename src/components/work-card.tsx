@@ -1,4 +1,13 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "motion/react";
 import type { Project } from "@/data/projects";
 import { LogoMark } from "@/components/logo-mark";
 import { cn } from "@/lib/cn";
@@ -14,10 +23,24 @@ export function WorkCard({
   priority?: boolean;
 }) {
   const { from, to, ink } = project.palette;
+  const ref = useRef<HTMLAnchorElement>(null);
+  const reduce = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduce ? ["0%", "0%"] : ["-7%", "7%"],
+  );
 
   return (
     <Link
+      ref={ref}
       href={`/work/${project.slug}`}
+      data-cursor-label="View"
       className={cn("group block", className)}
     >
       <div
@@ -28,7 +51,7 @@ export function WorkCard({
         }}
       >
         {/* Meta corners */}
-        <div className="absolute inset-0 flex items-start justify-between p-5">
+        <div className="absolute inset-0 z-10 flex items-start justify-between p-5">
           <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] opacity-70">
             {project.sector}
           </span>
@@ -37,8 +60,11 @@ export function WorkCard({
           </span>
         </div>
 
-        {/* The mark */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* Parallax mark */}
+        <motion.div
+          style={{ y }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
           <LogoMark
             mark={project.mark}
             strokeWidth={2.2}
@@ -47,20 +73,17 @@ export function WorkCard({
               priority ? "h-28 w-28" : "h-20 w-20",
             )}
           />
-        </div>
+        </motion.div>
 
-        {/* Hover veil + view pill */}
+        {/* Hover veil */}
         <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/10" />
-        <div className="absolute inset-x-5 bottom-5 flex translate-y-3 items-center justify-between opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-          <span className="rounded-full bg-bone px-4 py-1.5 text-xs font-medium text-ink">
-            View project
-          </span>
-        </div>
       </div>
 
       {/* Caption */}
       <div className="mt-4 flex items-baseline justify-between gap-4">
-        <h3 className="font-display text-xl text-bone">{project.name}</h3>
+        <h3 className="font-display text-xl text-bone transition-colors duration-300 group-hover:text-accent">
+          {project.name}
+        </h3>
         <span className="text-sm text-muted">{project.services.join(" · ")}</span>
       </div>
       <p className="mt-1 text-sm leading-relaxed text-muted">{project.summary}</p>
