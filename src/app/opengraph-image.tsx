@@ -6,6 +6,13 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpengraphImage() {
+  const ogBar = {
+    width: 42,
+    height: 9,
+    borderRadius: 5,
+    background: "#ffffff",
+  } as const;
+
   return new ImageResponse(
     (
       <div
@@ -21,24 +28,28 @@ export default function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
           <div
             style={{
-              width: 64,
-              height: 64,
-              borderRadius: 16,
-              border: "2px solid #e8b25a",
+              width: 88,
+              height: 88,
+              borderRadius: 22,
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              color: "#e8b25a",
-              fontSize: 40,
-              fontWeight: 700,
+              gap: 9,
+              background:
+                "linear-gradient(135deg, #ff4f93 0%, #ff6a64 55%, #ff6b4c 100%)",
             }}
           >
-            E
+            <div style={ogBar} />
+            <div style={ogBar} />
+            <div style={{ ...ogBar, width: 38 }} />
           </div>
-          <div style={{ fontSize: 30, letterSpacing: 12, textTransform: "uppercase" }}>
+          <div
+            style={{ fontSize: 30, letterSpacing: 12, textTransform: "uppercase" }}
+          >
             {site.name}
           </div>
         </div>
@@ -49,11 +60,11 @@ export default function OpengraphImage() {
             flexWrap: "wrap",
             fontSize: 76,
             lineHeight: 1.05,
-            maxWidth: 920,
+            maxWidth: 940,
           }}
         >
           <span>Logos &amp; identities, built to be&nbsp;</span>
-          <span style={{ color: "#e8b25a", fontStyle: "italic" }}>
+          <span style={{ color: "#ff7a6b", fontStyle: "italic" }}>
             remembered.
           </span>
         </div>

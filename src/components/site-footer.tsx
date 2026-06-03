@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/data/site";
 import { services } from "@/data/studio";
 import { Container } from "@/components/container";
-import { EikonMark } from "@/components/eikon-logo";
+import { EikonIcon } from "@/components/eikon-logo";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -17,7 +17,7 @@ export function SiteFooter() {
               className="inline-flex items-center gap-3 text-bone"
               aria-label={`${site.name} — home`}
             >
-              <EikonMark className="h-9 w-9 text-accent" />
+              <EikonIcon className="h-9 w-9" />
               <span className="text-lg font-medium uppercase tracking-[0.3em]">
                 {site.name}
               </span>

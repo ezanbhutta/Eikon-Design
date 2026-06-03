@@ -20,9 +20,14 @@
   --color-paper-ink: #15140f;
   --color-paper-muted: #5d5b52;
 
-  --color-accent: #e8b25a;
-  --color-accent-deep: #cf963a;
-  --color-accent-ink: #1c1404;
+  /* Accent derived from the Eikon brand mark (pink → coral gradient). */
+  --color-accent: #ff6a5a;
+  --color-accent-deep: #ec5340;
+  --color-accent-ink: #2a0b06;
+
+  /* Brand gradient stops — used by the logo mark and ambient glows. */
+  --color-brand-pink: #ff4f93;
+  --color-brand-coral: #ff6b4c;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);

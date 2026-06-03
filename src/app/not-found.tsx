@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { ArrowLink } from "@/components/arrow-link";
-import { EikonMark } from "@/components/eikon-logo";
+import { EikonIcon } from "@/components/eikon-logo";
 
 export default function NotFound() {
   return (
     <section className="flex min-h-dvh items-center py-40">
       <Container className="text-center">
-        <EikonMark className="mx-auto h-14 w-14 text-accent/60" />
+        <EikonIcon className="mx-auto h-16 w-16" />
         <p className="font-mono mt-10 text-xs uppercase tracking-[0.22em] text-faint">
           Error 404
         </p>

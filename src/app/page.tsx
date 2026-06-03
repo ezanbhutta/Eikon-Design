@@ -5,7 +5,6 @@ import { Marquee } from "@/components/marquee";
 import { SectionLabel } from "@/components/section-label";
 import { ArrowLink } from "@/components/arrow-link";
 import { WorkCard } from "@/components/work-card";
-import { EikonMark } from "@/components/eikon-logo";
 import { featuredProjects } from "@/data/projects";
 import { services, process, stats, testimonials, clients } from "@/data/studio";
 import { site } from "@/data/site";
@@ -29,8 +28,13 @@ export default function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden pb-20 pt-40 sm:pt-48 lg:pb-28 lg:pt-56">
-      <EikonMark
-        className="pointer-events-none absolute -right-16 -top-10 hidden h-[34rem] w-[34rem] text-accent/5 lg:block"
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 -top-32 h-[38rem] w-[38rem] rounded-full opacity-[0.18] blur-[130px]"
+        style={{
+          background:
+            "radial-gradient(circle at 30% 30%, #ff4f93, #ff6b4c 45%, transparent 72%)",
+        }}
       />
       <Container className="relative">
         <Reveal>
@@ -313,7 +317,14 @@ function Voices() {
 function ClosingCta() {
   return (
     <section className="relative overflow-hidden border-t border-line py-28 lg:py-40">
-      <EikonMark className="pointer-events-none absolute -bottom-24 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 text-accent/[0.04]" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full opacity-[0.16] blur-[130px]"
+        style={{
+          background:
+            "radial-gradient(circle, #ff6b4c, #ff4f93 50%, transparent 72%)",
+        }}
+      />
       <Container className="relative text-center">
         <Reveal>
           <SectionLabel className="justify-center">
