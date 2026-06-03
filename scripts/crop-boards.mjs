@@ -24,10 +24,10 @@ const slugs = [
 
 /** Regions as fractions of each board (left, top, width, height). */
 const regions = {
-  logo: { left: 0.255, top: 0.327, width: 0.46, height: 0.638 },
-  poster: { left: 0.018, top: 0.027, width: 0.219, height: 0.6 },
-  social: { left: 0.727, top: 0.027, width: 0.258, height: 0.598 },
-  card: { left: 0.727, top: 0.652, width: 0.258, height: 0.315 },
+  logo: { left: 0.281, top: 0.362, width: 0.408, height: 0.55 },
+  poster: { left: 0.029, top: 0.041, width: 0.196, height: 0.565 },
+  social: { left: 0.739, top: 0.041, width: 0.238, height: 0.563 },
+  card: { left: 0.739, top: 0.665, width: 0.238, height: 0.287 },
 };
 
 for (const slug of slugs) {
