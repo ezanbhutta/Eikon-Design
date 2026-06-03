@@ -6,6 +6,7 @@ import { Container } from "@/components/container";
 import { SectionLabel } from "@/components/section-label";
 import { ArrowLink } from "@/components/arrow-link";
 import { Magnetic } from "@/components/magnetic";
+import { useIntroDone } from "@/components/intro";
 import { site } from "@/data/site";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -41,6 +42,8 @@ function HeadlineLine({ children }: { children: React.ReactNode }) {
 }
 
 export function SiteHero() {
+  const introDone = useIntroDone();
+
   return (
     <section className="relative overflow-hidden pb-20 pt-40 sm:pt-48 lg:pb-28 lg:pt-56">
       <div
@@ -52,7 +55,11 @@ export function SiteHero() {
         }}
       />
       <Container className="relative">
-        <motion.div variants={stage} initial="hidden" animate="show">
+        <motion.div
+          variants={stage}
+          initial="hidden"
+          animate={introDone ? "show" : "hidden"}
+        >
           <motion.div variants={fadeUp}>
             <SectionLabel>{site.tagline}</SectionLabel>
           </motion.div>
