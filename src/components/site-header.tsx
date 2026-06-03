@@ -7,6 +7,7 @@ import { site } from "@/data/site";
 import { EikonLogo } from "@/components/eikon-logo";
 import { Container } from "@/components/container";
 import { Magnetic } from "@/components/magnetic";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/cn";
 
 export function SiteHeader() {
@@ -69,7 +70,8 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <ThemeToggle />
             <Magnetic className="max-sm:hidden">
               <Link
                 href="/contact"

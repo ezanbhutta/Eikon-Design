@@ -43,12 +43,46 @@
 }
 
 /* ------------------------------------------------------------------ *
+ *  Light theme — flips the semantic tokens (data-theme="light").
+ *  Component classes stay the same; only the values change.
+ * ------------------------------------------------------------------ */
+html[data-theme="light"] {
+  --color-ink: #f5f2ea;
+  --color-ink-soft: #ebe7dc;
+  --color-ink-card: #ffffff;
+  --color-line: #d8d3c6;
+  --color-line-soft: #e6e1d5;
+
+  --color-bone: #1a1814;
+  --color-muted: #5b5851;
+  --color-faint: #8c887d;
+
+  --color-paper: #1a1814;
+  --color-paper-ink: #f5f2ea;
+  --color-paper-muted: #a7a399;
+
+  color-scheme: light;
+}
+
+/* Theme-toggle icon visibility, driven by data-theme. */
+.theme-icon-light {
+  display: none;
+}
+html[data-theme="light"] .theme-icon-dark {
+  display: none;
+}
+html[data-theme="light"] .theme-icon-light {
+  display: block;
+}
+
+/* ------------------------------------------------------------------ *
  *  Base layer
  * ------------------------------------------------------------------ */
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
   }
 
   body {

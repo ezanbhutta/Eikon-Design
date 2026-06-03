@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Cursor } from "@/components/cursor";
 import { IntroProvider } from "@/components/intro";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -69,6 +70,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${fraunces.variable} ${geistMono.variable}`}
     >
       <body className="grain min-h-dvh antialiased">
@@ -78,13 +80,15 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <IntroProvider>
-          <SmoothScroll />
-          <Cursor />
-          <SiteHeader />
-          <main id="main">{children}</main>
-          <SiteFooter />
-        </IntroProvider>
+        <ThemeProvider>
+          <IntroProvider>
+            <SmoothScroll />
+            <Cursor />
+            <SiteHeader />
+            <main id="main">{children}</main>
+            <SiteFooter />
+          </IntroProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
