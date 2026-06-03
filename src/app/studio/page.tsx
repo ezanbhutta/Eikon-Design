@@ -155,8 +155,8 @@ export default function StudioPage() {
           </Reveal>
           <Reveal delay={180}>
             <div className="mt-8 flex justify-center">
-              <ArrowLink href={`mailto:${site.email}`} external className="text-muted">
-                {site.email}
+              <ArrowLink href={site.fiverrGig} external className="text-muted">
+                389 five-star reviews on Fiverr
               </ArrowLink>
             </div>
           </Reveal>

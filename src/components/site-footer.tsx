@@ -51,12 +51,14 @@ export function SiteFooter() {
           </FooterColumn>
 
           <FooterColumn title="Connect">
-            <FooterLink href={`mailto:${site.email}`}>{site.email}</FooterLink>
             {site.socials.map((social) => (
               <FooterLink key={social.label} href={social.href} external>
                 {social.label}
               </FooterLink>
             ))}
+            <FooterLink href={site.fiverrGig} external>
+              Order on Fiverr
+            </FooterLink>
           </FooterColumn>
         </div>
 

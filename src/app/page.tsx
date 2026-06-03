@@ -8,8 +8,16 @@ import { SiteHero } from "@/components/site-hero";
 import { Magnetic } from "@/components/magnetic";
 import { Logo3D } from "@/components/logo-3d";
 import { WorkShowcase } from "@/components/work-showcase";
-import { services, process, stats, testimonials, clients } from "@/data/studio";
+import {
+  services,
+  process,
+  stats,
+  testimonials,
+  clients,
+  packages,
+} from "@/data/studio";
 import { site } from "@/data/site";
+import { cn } from "@/lib/cn";
 
 export default function Home() {
   return (
@@ -19,6 +27,7 @@ export default function Home() {
       <WorkShowcase />
       <DimensionShowcase />
       <Services />
+      <Pricing />
       <Process />
       <Philosophy />
       <Voices />
@@ -120,6 +129,86 @@ function Services() {
               </Reveal>
             ))}
           </ul>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* --------------------------------------------------------------- Pricing */
+function Pricing() {
+  return (
+    <section id="pricing" className="scroll-mt-24 border-t border-line py-24 lg:py-32">
+      <Container>
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <Reveal>
+              <SectionLabel>Pricing</SectionLabel>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 className="font-display mt-5 text-4xl leading-tight tracking-tight text-bone sm:text-5xl">
+                Clear packages, delivered fast.
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal delay={120}>
+            <p className="max-w-xs font-mono text-xs uppercase leading-relaxed tracking-[0.16em] text-faint">
+              Ordered through Fiverr · unlimited revisions · 389 five-star
+              reviews
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {packages.map((pkg, i) => (
+            <Reveal key={pkg.name} delay={i * 80}>
+              <div
+                className={cn(
+                  "flex h-full flex-col rounded-2xl border p-8",
+                  pkg.featured ? "border-accent/60 bg-ink-soft" : "border-line",
+                )}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
+                    {pkg.name}
+                  </span>
+                  {pkg.featured && (
+                    <span className="rounded-full bg-accent px-3 py-1 text-[0.6rem] font-medium uppercase tracking-wider text-accent-ink">
+                      Popular
+                    </span>
+                  )}
+                </div>
+                <p className="font-display mt-6 text-5xl tracking-tight text-bone">
+                  {pkg.price}
+                </p>
+                <p className="mt-2 text-sm text-muted">{pkg.summary}</p>
+                <ul className="mt-8 flex-1 space-y-3">
+                  {pkg.features.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-3 text-sm text-muted"
+                    >
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={site.fiverrGig}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-transform hover:-translate-y-0.5",
+                    pkg.featured
+                      ? "bg-accent text-accent-ink"
+                      : "border border-line text-bone hover:bg-bone hover:text-ink",
+                  )}
+                >
+                  Order {pkg.name}
+                </Link>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </section>
@@ -264,8 +353,8 @@ function ClosingCta() {
                   Start a project
                 </Link>
               </Magnetic>
-              <ArrowLink href={`mailto:${site.email}`} external className="text-bone">
-                {site.email}
+              <ArrowLink href={site.fiverr} external className="text-bone">
+                Message us on Fiverr
               </ArrowLink>
             </div>
           </div>

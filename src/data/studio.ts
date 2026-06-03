@@ -134,3 +134,52 @@ export const clients: string[] = [
   "GravDrive",
   "Mistory",
 ];
+
+export interface Package {
+  name: string;
+  price: string;
+  summary: string;
+  features: string[];
+  featured?: boolean;
+}
+
+/** Real Fiverr packages. */
+export const packages: Package[] = [
+  {
+    name: "Basic",
+    price: "$40",
+    summary: "Logo",
+    features: [
+      "1 logo concept",
+      "App icon & favicon",
+      "Brand font",
+      "Brand colours",
+    ],
+  },
+  {
+    name: "Standard",
+    price: "$115",
+    summary: "Logo + Social Media Kit",
+    features: [
+      "2 logo concepts",
+      "App icon, fonts & palette",
+      "Social media kit",
+      "Profile logos + banners",
+    ],
+    featured: true,
+  },
+  {
+    name: "Premium",
+    price: "$165",
+    summary: "Complete Branding Kit",
+    features: [
+      "3–4 logo concepts",
+      "Full identity & variations",
+      "Stationery + business card",
+      "Social kit · 6 platforms",
+      "3D mockups",
+      "Vector + all source files",
+      "Free consultation",
+    ],
+  },
+];

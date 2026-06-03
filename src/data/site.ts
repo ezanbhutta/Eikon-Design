@@ -11,7 +11,6 @@ export const site = {
   description:
     "Eikon Designs is a creative studio offering more than logo design — clean, minimal, modern marks and complete branding kits, built around your brand vision.",
   url: "https://eikon.design",
-  email: "hello@eikon.design",
   location: "Multan, Pakistan — working worldwide",
   availability: "Available for new projects",
   founded: 2021,

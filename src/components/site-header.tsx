@@ -139,7 +139,14 @@ export function SiteHeader() {
             >
               Start a project
             </Link>
-            <p className="text-sm text-muted">{site.email}</p>
+            <a
+              href={site.fiverr}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted"
+            >
+              Message us on Fiverr →
+            </a>
           </div>
         </Container>
       </div>
