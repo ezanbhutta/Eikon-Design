@@ -1,18 +1,17 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { site } from "@/data/site";
 
 export const alt = `${site.name} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
-  const ogBar = {
-    width: 42,
-    height: 9,
-    borderRadius: 5,
-    background: "#ffffff",
-  } as const;
+const logo = readFileSync(join(process.cwd(), "public/eikon-logo.png")).toString(
+  "base64",
+);
 
+export default function OpengraphImage() {
   return new ImageResponse(
     (
       <div
@@ -22,35 +21,24 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0a0a0b",
+          background: "#0b0b0c",
           padding: "80px",
-          color: "#f4f2ec",
+          color: "#f2f0ea",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <div
-            style={{
-              width: 88,
-              height: 88,
-              borderRadius: 22,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 9,
-              background:
-                "linear-gradient(135deg, #ff4f93 0%, #ff6a64 55%, #ff6b4c 100%)",
-            }}
-          >
-            <div style={ogBar} />
-            <div style={ogBar} />
-            <div style={{ ...ogBar, width: 38 }} />
-          </div>
+          <img
+            src={`data:image/png;base64,${logo}`}
+            width={92}
+            height={92}
+            style={{ borderRadius: 22 }}
+            alt=""
+          />
           <div
             style={{ fontSize: 30, letterSpacing: 12, textTransform: "uppercase" }}
           >
-            {site.name}
+            {`${site.name} Designs`}
           </div>
         </div>
 
@@ -58,15 +46,13 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            fontSize: 76,
+            fontSize: 74,
             lineHeight: 1.05,
-            maxWidth: 940,
+            maxWidth: 960,
           }}
         >
           <span>Logos &amp; identities, built to be&nbsp;</span>
-          <span style={{ color: "#ff7a6b", fontStyle: "italic" }}>
-            remembered.
-          </span>
+          <span style={{ color: "#ff5a36" }}>remembered.</span>
         </div>
 
         <div
@@ -75,7 +61,7 @@ export default function OpengraphImage() {
             justifyContent: "space-between",
             alignItems: "center",
             fontSize: 26,
-            color: "#9a9a93",
+            color: "#8a8a82",
           }}
         >
           <span>{site.tagline}</span>

@@ -46,7 +46,7 @@ export function SiteHeader() {
             aria-label={`${site.name} — home`}
             className="text-bone transition-opacity hover:opacity-70"
           >
-            <EikonLogo />
+            <EikonLogo priority />
           </Link>
 
           <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">

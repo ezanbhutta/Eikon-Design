@@ -1,14 +1,13 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
-import { EikonIcon } from "@/components/eikon-logo";
 
 /**
- * Coordinates the first-load intro. `useIntroDone()` lets the hero (and
- * anything else) hold its entrance until the loader has lifted away.
- * Also installs MotionConfig so every Motion animation respects the
- * visitor's reduced-motion preference automatically.
+ * First-load intro (~2.5s). The hero holds its entrance until the loader
+ * lifts (useIntroDone). MotionConfig makes all Motion animations respect
+ * reduced-motion automatically.
  */
 const IntroContext = createContext(true);
 export const useIntroDone = () => useContext(IntroContext);
@@ -26,13 +25,15 @@ export function IntroProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 function Loader({ onDone }: { onDone: () => void }) {
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
     const seen = sessionStorage.getItem("eikon_intro") === "1";
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const duration = seen || reduce ? 0 : 1500;
+    const duration = seen || reduce ? 0 : 2400;
 
     const timer = window.setTimeout(() => {
       sessionStorage.setItem("eikon_intro", "1");
@@ -54,18 +55,37 @@ function Loader({ onDone }: { onDone: () => void }) {
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, scale: 0.55, rotate: -12, filter: "blur(8px)" }}
+            animate={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.15, ease: EASE }}
           >
-            <EikonIcon className="h-16 w-16" />
+            <Image
+              src="/eikon-logo.png"
+              alt="Eikon Designs"
+              width={128}
+              height={128}
+              priority
+              className="h-24 w-24 rounded-[24%] shadow-2xl shadow-black/40 sm:h-28 sm:w-28"
+            />
           </motion.div>
+
+          <span className="mt-8 block overflow-hidden">
+            <motion.span
+              initial={{ y: "120%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.55 }}
+              className="block font-mono text-xs uppercase tracking-[0.42em] text-muted"
+            >
+              Eikon&nbsp;Designs
+            </motion.span>
+          </span>
+
           <div className="mt-7 h-px w-44 overflow-hidden bg-line">
             <motion.div
               className="h-full bg-accent"
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
-              transition={{ duration: 1.3, ease: "easeInOut" }}
+              transition={{ duration: 2.2, ease: "easeInOut" }}
             />
           </div>
         </motion.div>
