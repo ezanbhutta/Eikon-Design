@@ -40,12 +40,11 @@ export function SiteHero() {
         >
           <motion.div
             variants={fadeUp}
-            className="flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.2em] text-faint"
+            className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-faint"
           >
             <span>
               {site.name} — {site.tagline}
             </span>
-            <span className="hidden sm:inline">/ˈaɪ·kɒn/ · the image of a thing</span>
           </motion.div>
 
           <motion.h1
