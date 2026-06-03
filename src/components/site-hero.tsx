@@ -48,10 +48,10 @@ export function SiteHero() {
             <span className="hidden sm:inline">/ˈaɪ·kɒn/ · the image of a thing</span>
           </motion.div>
 
-          <h1 className="mt-6 overflow-hidden">
+          <h1 className="mt-3 overflow-hidden pt-[0.12em] text-[24vw] leading-[0.82] lg:text-[19vw]">
             <motion.span
               variants={rise}
-              className="wordmark-sheen font-display block text-[24vw] font-extrabold leading-[0.82] tracking-[-0.04em] lg:text-[19vw]"
+              className="wordmark-sheen font-display block font-extrabold tracking-[-0.04em]"
             >
               {site.name}
             </motion.span>
