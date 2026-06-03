@@ -4,11 +4,10 @@ import { Reveal } from "@/components/reveal";
 import { Marquee } from "@/components/marquee";
 import { SectionLabel } from "@/components/section-label";
 import { ArrowLink } from "@/components/arrow-link";
-import { WorkCard } from "@/components/work-card";
 import { SiteHero } from "@/components/site-hero";
 import { Magnetic } from "@/components/magnetic";
 import { Logo3D } from "@/components/logo-3d";
-import { featuredProjects } from "@/data/projects";
+import { WorkRail } from "@/components/work-rail";
 import { services, process, stats, testimonials, clients } from "@/data/studio";
 import { site } from "@/data/site";
 
@@ -17,7 +16,7 @@ export default function Home() {
     <>
       <SiteHero />
       <ClientStrip />
-      <FeaturedWork />
+      <WorkRail />
       <DimensionShowcase />
       <Services />
       <Process />
@@ -33,41 +32,6 @@ function ClientStrip() {
   return (
     <section className="border-y border-line py-8" aria-label="Selected clients">
       <Marquee items={clients} />
-    </section>
-  );
-}
-
-/* --------------------------------------------------------- Featured work */
-function FeaturedWork() {
-  return (
-    <section className="py-24 lg:py-32">
-      <Container>
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <Reveal>
-              <SectionLabel index="01">Selected work</SectionLabel>
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
-                Marks that earn a second look.
-              </h2>
-            </Reveal>
-          </div>
-          <Reveal delay={120}>
-            <ArrowLink href="/work" className="text-bone">
-              All projects
-            </ArrowLink>
-          </Reveal>
-        </div>
-
-        <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2">
-          {featuredProjects.map((project, i) => (
-            <Reveal key={project.slug} delay={(i % 2) * 100}>
-              <WorkCard project={project} priority={i === 0} />
-            </Reveal>
-          ))}
-        </div>
-      </Container>
     </section>
   );
 }
