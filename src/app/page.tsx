@@ -7,7 +7,7 @@ import { ArrowLink } from "@/components/arrow-link";
 import { SiteHero } from "@/components/site-hero";
 import { Magnetic } from "@/components/magnetic";
 import { Logo3D } from "@/components/logo-3d";
-import { WorkRail } from "@/components/work-rail";
+import { WorkShowcase } from "@/components/work-showcase";
 import { services, process, stats, testimonials, clients } from "@/data/studio";
 import { site } from "@/data/site";
 
@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <SiteHero />
       <ClientStrip />
-      <WorkRail />
+      <WorkShowcase />
       <DimensionShowcase />
       <Services />
       <Process />
