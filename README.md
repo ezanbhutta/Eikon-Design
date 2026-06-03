@@ -58,6 +58,27 @@ The contact form composes a prefilled email via the visitor's mail client
 (no backend required). Swap it for a Server Action or an email service
 (Resend, Formspree, etc.) when ready — see `src/components/contact-form.tsx`.
 
+## Adding logos & images (keep the repo lean)
+
+Only **web-optimized** assets belong in git. Keep heavy masters (PDF, `.ai`,
+`.psd`, full-res JPEG) in Drive/Dropbox — `.gitignore` blocks the source
+formats so they can't be committed by accident.
+
+```bash
+# 1. Drop big originals into the gitignored staging folder
+assets-source/<project>/photo.jpg   (or logo.svg, mockup.png …)
+
+# 2. Optimize → writes WebP / minified SVG into public/work/
+npm run optimize
+
+# 3. Commit only the optimized output in public/work/
+```
+
+- **Logos:** export **SVG** (Illustrator/Figma) — tiny + scalable. PDFs can't
+  be converted here.
+- **Photos/mockups:** any JPEG/PNG; the script resizes + converts to WebP.
+- Tune with `MAX_WIDTH=2400 QUALITY=82 npm run optimize`.
+
 ## Deployment
 
 Optimised for **Vercel**: every route prerenders as static content. Connect the

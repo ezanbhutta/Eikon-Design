@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local staging for large source assets — originals are NOT committed.
+# Drop big JPEG/PNG/SVG here, run `npm run optimize`, commit only the output.
+/assets-source/*
+!/assets-source/README.md
+
+# Editable design-source masters belong in Drive, never the web repo.
+*.ai
+*.eps
+*.psd
+*.sketch
+*.fig

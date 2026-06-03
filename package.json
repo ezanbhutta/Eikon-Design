@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "optimize": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "lenis": "^1.3.23",
@@ -23,6 +24,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
