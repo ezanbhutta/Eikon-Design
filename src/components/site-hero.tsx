@@ -5,6 +5,7 @@ import { motion, type Variants } from "motion/react";
 import { Container } from "@/components/container";
 import { ArrowLink } from "@/components/arrow-link";
 import { Magnetic } from "@/components/magnetic";
+import { HeroCanvas } from "@/components/hero-canvas";
 import { LiveClock } from "@/components/live-clock";
 import { useIntroDone } from "@/components/intro";
 import { site } from "@/data/site";
@@ -32,7 +33,8 @@ export function SiteHero() {
 
   return (
     <section className="relative overflow-hidden pb-16 pt-36 sm:pt-44 lg:pb-24 lg:pt-52">
-      <Container>
+      <HeroCanvas className="pointer-events-none absolute inset-0 opacity-80" />
+      <Container className="relative z-10">
         <motion.div
           variants={stage}
           initial="hidden"
