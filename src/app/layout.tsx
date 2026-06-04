@@ -9,6 +9,7 @@ import { SmoothScroll } from "@/components/smooth-scroll";
 import { Cursor } from "@/components/cursor";
 import { IntroProvider } from "@/components/intro";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SiteBackground } from "@/components/site-background";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -89,9 +90,12 @@ export default function RootLayout({
           <IntroProvider>
             <SmoothScroll />
             <Cursor />
-            <SiteHeader />
-            <main id="main">{children}</main>
-            <SiteFooter />
+            <SiteBackground />
+            <div className="relative z-10">
+              <SiteHeader />
+              <main id="main">{children}</main>
+              <SiteFooter />
+            </div>
           </IntroProvider>
         </ThemeProvider>
       </body>

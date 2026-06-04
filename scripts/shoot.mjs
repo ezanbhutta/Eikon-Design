@@ -2,8 +2,8 @@ import { chromium } from "playwright";
 
 const url = process.argv[2] ?? "http://localhost:3000";
 const out = process.argv[3] ?? "/tmp/shot.png";
-const full = process.argv[4] === "full";
-const wait = Number(process.argv[5] ?? 4200);
+const wait = Number(process.argv[4] ?? 4500);
+const scroll = process.argv[5]; // optional CSS selector to scroll into view
 
 const browser = await chromium.launch({
   args: [
@@ -20,6 +20,14 @@ const page = await browser.newPage({
 });
 await page.goto(url, { waitUntil: "load" });
 await page.waitForTimeout(wait);
-await page.screenshot({ path: out, fullPage: full });
+
+if (scroll) {
+  await page.evaluate((sel) => {
+    document.querySelector(sel)?.scrollIntoView({ block: "start" });
+  }, scroll);
+  await page.waitForTimeout(2200);
+}
+
+await page.screenshot({ path: out });
 await browser.close();
 console.log("shot →", out);
