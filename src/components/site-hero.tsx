@@ -61,8 +61,9 @@ export function SiteHero() {
             variants={fadeUp}
             className="mt-8 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl"
           >
-            We design the smallest, sharpest expression of who you are — logos,
-            identity systems, and the guidelines that keep them sharp.
+            We&rsquo;re a small studio making clean, modern logos and complete
+            brand kits — for founders who want their business to look the part
+            from day one.
           </motion.p>
 
           <motion.div

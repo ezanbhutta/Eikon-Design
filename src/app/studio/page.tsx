@@ -48,16 +48,16 @@ export default function StudioPage() {
           <Reveal delay={160}>
             <div className="mt-10 grid gap-8 text-lg leading-relaxed text-muted lg:grid-cols-2">
               <p>
-                {site.name} is an independent logo and brand identity practice.
-                We partner with founders, marketers, and fellow agencies to give
-                ambitious organisations an identity that finally matches the
-                quality of what they do.
+                Eikon Designs is a small, independent studio. Over the last few
+                years we&rsquo;ve made logos and full brand kits for hundreds of
+                founders and small teams around the world — and earned 389
+                five-star reviews doing it.
               </p>
               <p>
-                We keep the studio deliberately small so the people you meet are
-                the people who do the work. No handoffs, no juniors learning on
-                your budget — just focused, senior craft from first sketch to
-                final delivery.
+                We keep things small on purpose: the person you talk to is the
+                person doing the work. No handoffs, no juniors learning on your
+                budget — just clean, modern design and unlimited revisions until
+                it feels right.
               </p>
             </div>
           </Reveal>

@@ -8,7 +8,7 @@ import * as THREE from "three";
 
 /** Static point field, generated once at module load (kept out of render). */
 const POSITIONS = (() => {
-  const count = 2600;
+  const count = 2000;
   const arr = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
     const r = 1.1 + Math.random() * 1.9;
@@ -59,11 +59,12 @@ function Constellation() {
   );
 }
 
-export default function HeroScene() {
+export default function HeroScene({ active = true }: { active?: boolean }) {
   return (
     <Canvas
+      frameloop={active ? "always" : "never"}
       camera={{ position: [0, 0, 3], fov: 55 }}
-      dpr={[1, 1.5]}
+      dpr={[1, 1.25]}
       gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
     >
       <Constellation />

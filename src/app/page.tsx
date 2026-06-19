@@ -267,8 +267,8 @@ function Philosophy() {
             </Reveal>
             <Reveal delay={80}>
               <blockquote className="font-display mt-7 text-balance text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">
-                A logo is not a picture of what you do. It is the smallest,
-                sharpest expression of <em className="italic">who you are.</em>
+                People size up a brand in seconds. A good logo is what makes
+                those seconds <em className="italic">land in your favour.</em>
               </blockquote>
             </Reveal>
             <Reveal delay={160}>
@@ -341,8 +341,8 @@ function ClosingCta() {
         <Reveal delay={140}>
           <div className="mt-10 flex flex-col gap-8 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-md text-muted">
-              Have a brand worth remembering? Tell us where you want to go — and
-              we&rsquo;ll design the mark that gets you there.
+              Got a business that deserves a sharper logo? Tell us about it —
+              we&rsquo;ll take it from there.
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
               <Magnetic>
