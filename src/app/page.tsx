@@ -57,14 +57,14 @@ function DimensionShowcase() {
             </Reveal>
             <Reveal delay={80}>
               <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
-                Every mark, crafted to live anywhere.
+                Your logo has to work everywhere.
               </h2>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 text-muted">
-                A logo has to work on a screen, a sign, a stitch, and a screen
-                you haven&rsquo;t imagined yet. Move your cursor across it —
-                it holds up from every angle.
+                On a phone, a shopfront, a business card, a t-shirt — it all has
+                to look right. Give the mark a spin; it holds up from every
+                angle.
               </p>
             </Reveal>
           </div>
@@ -89,13 +89,13 @@ function Services() {
             </Reveal>
             <Reveal delay={80}>
               <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
-                One focus: brands that look unmistakably themselves.
+                We make logos — and everything around them.
               </h2>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 max-w-md text-muted">
-                From the first mark to the final guidelines, every layer of the
-                identity is designed to work together.
+                Take just the logo, or the full kit. Either way, every piece is
+                designed to fit together.
               </p>
             </Reveal>
           </div>
@@ -147,7 +147,7 @@ function Pricing() {
             </Reveal>
             <Reveal delay={80}>
               <h2 className="font-display mt-5 text-4xl leading-tight tracking-tight text-bone sm:text-5xl">
-                Clear packages, delivered fast.
+                Simple packages, delivered fast.
               </h2>
             </Reveal>
           </div>
@@ -226,7 +226,7 @@ function Process() {
           </Reveal>
           <Reveal delay={80}>
             <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
-              A clear path from first call to final handover.
+              From your brief to the final files.
             </h2>
           </Reveal>
         </div>

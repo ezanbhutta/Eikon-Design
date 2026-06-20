@@ -9,7 +9,7 @@ export const site = {
   /** Greek "εἰκών" — image / icon. */
   tagline: "Logo & Brand Identity Studio",
   description:
-    "Eikon Designs is a creative studio offering more than logo design — clean, minimal, modern marks and complete branding kits, built around your brand vision.",
+    "Eikon Designs is a small studio making clean, modern logos and complete brand kits for founders around the world.",
   url: "https://eikon.design",
   location: "Multan, Pakistan — working worldwide",
   availability: "Available for new projects",

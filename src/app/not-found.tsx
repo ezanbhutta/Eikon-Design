@@ -12,11 +12,11 @@ export default function NotFound() {
           Error 404
         </p>
         <h1 className="font-display mt-5 text-5xl text-bone sm:text-7xl">
-          This page went unsigned.
+          This one&rsquo;s a blank page.
         </h1>
         <p className="mt-6 max-w-md text-muted">
-          The mark you are looking for is not here. Let us point you back to
-          something worth seeing.
+          The page you&rsquo;re after isn&rsquo;t here. Let&rsquo;s get you back
+          to something worth a look.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
           <Link

@@ -15,20 +15,20 @@ export const metadata: Metadata = {
 
 const principles = [
   {
-    title: "Strategy before style",
-    body: "Every mark answers a brief. We design from what a brand needs to mean, not from what happens to be in fashion this year.",
+    title: "Meaning before style",
+    body: "A logo should say something, not just look nice. We start from what your business actually needs to get across.",
   },
   {
     title: "Black & white first",
-    body: "If an idea does not work as a single colour at a single centimetre, it does not work. Colour and texture come last, on purpose.",
+    body: "If an idea doesn't work in plain black and white at a tiny size, it doesn't work. Colour comes later, on purpose.",
   },
   {
     title: "Built to scale",
-    body: "From a favicon to a billboard, every asset is drawn to hold up everywhere it will ever live.",
+    body: "From a favicon to a billboard, we draw it to look sharp everywhere it'll end up.",
   },
   {
-    title: "Made to be handed over",
-    body: "You leave with organised, editable files and guidelines clear enough that any team can keep the brand sharp.",
+    title: "Made to hand over",
+    body: "You leave with tidy, editable files and simple guidelines, so anyone on your side can keep things consistent.",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function StudioPage() {
           </Reveal>
           <Reveal delay={80}>
             <h1 className="font-display mt-6 max-w-5xl text-balance text-5xl leading-[1.05] text-bone sm:text-6xl lg:text-7xl">
-              A small studio with a single obsession: the mark.
+              A small studio, slightly obsessed with logos.
             </h1>
           </Reveal>
           <Reveal delay={160}>
@@ -140,7 +140,7 @@ export default function StudioPage() {
         <Container>
           <Reveal>
             <h2 className="font-display max-w-3xl text-balance text-4xl leading-tight text-bone sm:text-5xl lg:text-6xl">
-              Let us give your brand a mark worth keeping.
+              Let&rsquo;s give your business a logo worth keeping.
             </h2>
           </Reveal>
           <Reveal delay={120}>

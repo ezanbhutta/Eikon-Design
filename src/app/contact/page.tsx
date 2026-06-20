@@ -31,7 +31,7 @@ export default function ContactPage() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="font-display mt-6 text-balance text-5xl leading-[1.02] tracking-tight text-bone sm:text-6xl">
-                Let&rsquo;s start something worth remembering.
+                Let&rsquo;s get your logo started.
               </h1>
             </Reveal>
             <Reveal delay={160}>

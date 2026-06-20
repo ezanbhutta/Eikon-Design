@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected logo and brand identity projects — marks, systems, and guidelines crafted by the Eikon studio.",
+    "Recent logo and branding projects from Eikon Designs — clean, modern identities for founders around the world.",
 };
 
 export default function WorkPage() {
@@ -21,13 +21,13 @@ export default function WorkPage() {
           </Reveal>
           <Reveal delay={80}>
             <h1 className="font-display mt-6 max-w-4xl text-balance text-5xl leading-[1.05] text-bone sm:text-6xl lg:text-7xl">
-              Every brand begins with a single, deliberate mark.
+              A few brands we&rsquo;ve shaped lately.
             </h1>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-7 max-w-xl text-lg text-muted">
-              A selection of recent identities. Each one starts in black and
-              white and ends as a brand its owner is proud to stand behind.
+              A selection of recent projects. Each one started as a rough idea
+              and a blank page — here&rsquo;s where they landed.
             </p>
           </Reveal>
         </Container>

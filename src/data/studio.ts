@@ -14,28 +14,28 @@ export const services: Service[] = [
     id: "logo",
     title: "Logo Design",
     description:
-      "A distinctive primary mark — clean, minimal, and modern — with the app icon, favicon, type, and colours that anchor it.",
+      "A clean, modern logo that actually suits your business — plus the app icon, favicon, font and colours that go with it.",
     deliverables: ["Logo concepts", "App icon", "Favicon", "Brand font & colours"],
   },
   {
     id: "identity",
     title: "Brand Identity",
     description:
-      "A complete visual language: palette, type system, and horizontal, vertical, and black-&-white variations that hold up everywhere.",
+      "The full visual language: colour palette, type, and every logo variation you'll need — horizontal, vertical, black & white.",
     deliverables: ["Type system", "Colour palette", "Logo variations", "Iconography"],
   },
   {
     id: "kit",
     title: "Branding Kit",
     description:
-      "Everything you need to launch — brand guidelines, stationery, polished 3D mockups, and organised, editable source files.",
+      "Everything to launch with: brand guidelines, business cards and stationery, 3D mockups, and tidy, editable source files.",
     deliverables: ["Brand guidelines", "Business card & stationery", "3D mockups", "Vector source files"],
   },
   {
     id: "social",
     title: "Social Media Kit",
     description:
-      "On-brand profiles, banners, and templates so you show up consistently across every platform you use.",
+      "Matching profiles, banners and post templates so you look consistent on every platform you're on.",
     deliverables: ["Profile & banners", "Post templates", "Story templates", "6-platform resize"],
   },
 ];
@@ -51,25 +51,25 @@ export const process: ProcessStep[] = [
     index: "01",
     title: "Discover",
     description:
-      "We start with your brand vision — your market, audience, and the feeling the mark has to carry. Share as much or as little as you have.",
+      "Tell us about your business, who it's for, and the feel you're after — as much or as little as you've got. We'll work with it.",
   },
   {
     index: "02",
     title: "Design",
     description:
-      "Concepts are explored clean and minimal first. We pressure-test every idea at every size before colour and texture come in.",
+      "We sketch concepts in black and white first, and make sure they hold up big and small before any colour goes near them.",
   },
   {
     index: "03",
     title: "Refine",
     description:
-      "Unlimited revisions on the chosen direction — we sharpen the curve, the kern, the optical detail until nothing is left to remove.",
+      "Pick a direction and we refine it with you — unlimited revisions until the spacing, the curves, every detail feels right.",
   },
   {
     index: "04",
     title: "Deliver",
     description:
-      "You receive an organised kit — variations, 3D mockups, stationery, social, and editable vector source files — ready to roll out.",
+      "You get a tidy folder with everything: variations, mockups, stationery, social, and editable source files. Ready to use.",
   },
 ];
 
