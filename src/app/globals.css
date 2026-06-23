@@ -130,38 +130,25 @@ html[data-theme="light"] .theme-icon-light {
   }
 }
 
-@keyframes eikon-marquee {
+@keyframes page-enter {
   from {
-    transform: translateX(0);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: translateX(-50%);
+    opacity: 1;
+    transform: none;
   }
 }
 
-.marquee-track {
-  animation: eikon-marquee var(--marquee-duration, 38s) linear infinite;
+.page-enter {
+  animation: page-enter 0.5s var(--ease-out-expo) both;
 }
 
-.marquee-mask {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 12%,
-    #000 88%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 12%,
-    #000 88%,
-    transparent
-  );
-}
-
-.group\/marquee:hover .marquee-track {
-  animation-play-state: paused;
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
 }
 
 .link-line {

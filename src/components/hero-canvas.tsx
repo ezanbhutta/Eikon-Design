@@ -12,6 +12,20 @@ export function HeroCanvas({ className }: { className?: string }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(true);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const win = window as typeof window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (win.requestIdleCallback) {
+      const id = win.requestIdleCallback(() => setReady(true), { timeout: 2000 });
+      return () => win.cancelIdleCallback?.(id);
+    }
+    const id = window.setTimeout(() => setReady(true), 1200);
+    return () => window.clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     const node = ref.current;
@@ -28,7 +42,7 @@ export function HeroCanvas({ className }: { className?: string }) {
 
   return (
     <div ref={ref} className={className} aria-hidden>
-      <HeroScene active={active} />
+      {ready && <HeroScene active={active} />}
     </div>
   );
 }
