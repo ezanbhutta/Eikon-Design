@@ -11,11 +11,6 @@ import {
 } from "motion/react";
 import { cn } from "@/lib/cn";
 
-/**
- * The real Eikon logo presented in 3D: it tilts toward the cursor (CSS
- * perspective) and gently floats, with a soft brand glow behind. Uses the
- * actual logo image — no modeled stand-in. Reduced-motion → static.
- */
 export function Logo3D({ className }: { className?: string }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);

@@ -22,7 +22,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while the mobile menu is open.
+  // lock scroll while the menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -108,7 +108,6 @@ export function SiteHeader() {
         </Container>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={cn(
           "fixed inset-0 top-18 z-40 bg-ink transition-all duration-500 md:hidden",

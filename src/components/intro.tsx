@@ -4,11 +4,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 
-/**
- * First-load intro (~2.5s). The hero holds its entrance until the loader
- * lifts (useIntroDone). MotionConfig makes all Motion animations respect
- * reduced-motion automatically.
- */
 const IntroContext = createContext(true);
 export const useIntroDone = () => useContext(IntroContext);
 

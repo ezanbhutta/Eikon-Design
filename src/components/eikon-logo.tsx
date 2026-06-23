@@ -2,11 +2,6 @@ import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { site } from "@/data/site";
 
-/**
- * The real Eikon Designs mark (public/eikon-logo.svg, rasterized to
- * eikon-logo.png). It's a solid gradient square, so we round it in CSS
- * to match the app-icon look.
- */
 export function EikonIcon({
   className = "h-8 w-8",
   title,
@@ -29,9 +24,6 @@ export function EikonIcon({
   );
 }
 
-/**
- * Full lockup: mark + wordmark.
- */
 export function EikonLogo({
   className,
   iconClassName,

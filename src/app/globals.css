@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* ------------------------------------------------------------------ *
- *  Eikon — Design tokens
- *  Static colors live in @theme so Tailwind generates utilities
- *  (bg-ink, text-bone, border-line, text-accent, …) AND CSS vars.
- * ------------------------------------------------------------------ */
 @theme {
   --color-ink: #0b0b0c;
   --color-ink-soft: #101012;
@@ -20,12 +15,10 @@
   --color-paper-ink: #15140f;
   --color-paper-muted: #5d5b52;
 
-  /* Signal accent — used sparingly (dots, active index, underline, one CTA). */
   --color-accent: #ff5a36;
   --color-accent-deep: #e8431f;
   --color-accent-ink: #1a0a02;
 
-  /* Brand gradient stops — used by the Eikon logo mark only. */
   --color-brand-pink: #ff4f93;
   --color-brand-coral: #ff6b4c;
 
@@ -33,8 +26,6 @@
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Font tokens reference runtime CSS vars set by next/font, so they
-   must be inlined rather than captured at build time. */
 @theme inline {
   --font-sans: var(--font-switzer), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bricolage), var(--font-switzer), ui-sans-serif,
@@ -42,10 +33,6 @@
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
 }
 
-/* ------------------------------------------------------------------ *
- *  Light theme — flips the semantic tokens (data-theme="light").
- *  Component classes stay the same; only the values change.
- * ------------------------------------------------------------------ */
 html[data-theme="light"] {
   --color-ink: #faf8f2;
   --color-ink-soft: #f0ece2;
@@ -64,7 +51,6 @@ html[data-theme="light"] {
   color-scheme: light;
 }
 
-/* Theme-toggle icon visibility, driven by data-theme. */
 .theme-icon-light {
   display: none;
 }
@@ -75,9 +61,6 @@ html[data-theme="light"] .theme-icon-light {
   display: block;
 }
 
-/* ------------------------------------------------------------------ *
- *  Base layer
- * ------------------------------------------------------------------ */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -106,7 +89,6 @@ html[data-theme="light"] .theme-icon-light {
     border-radius: 2px;
   }
 
-  /* Display headings use the variable serif with tight optical spacing. */
   .font-display {
     font-optical-sizing: auto;
     letter-spacing: -0.02em;
@@ -126,9 +108,6 @@ html[data-theme="light"] .theme-icon-light {
   }
 }
 
-/* ------------------------------------------------------------------ *
- *  Reveal-on-scroll (driven by components/reveal.tsx)
- * ------------------------------------------------------------------ */
 [data-reveal] {
   opacity: 0;
   transform: translateY(22px);
@@ -150,9 +129,6 @@ html[data-theme="light"] .theme-icon-light {
   }
 }
 
-/* ------------------------------------------------------------------ *
- *  Marquee
- * ------------------------------------------------------------------ */
 @keyframes eikon-marquee {
   from {
     transform: translateX(0);
@@ -187,9 +163,6 @@ html[data-theme="light"] .theme-icon-light {
   animation-play-state: paused;
 }
 
-/* ------------------------------------------------------------------ *
- *  Animated underline links
- * ------------------------------------------------------------------ */
 .link-line {
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 0% 1px;
@@ -203,9 +176,6 @@ html[data-theme="light"] .theme-icon-light {
   background-size: 100% 1px;
 }
 
-/* ------------------------------------------------------------------ *
- *  Lenis smooth scroll
- * ------------------------------------------------------------------ */
 html.lenis,
 html.lenis body {
   height: auto;
@@ -223,10 +193,6 @@ html.lenis body {
   overflow: hidden;
 }
 
-/* ------------------------------------------------------------------ *
- *  Custom cursor — hide the native cursor on fine pointers only.
- *  Form fields keep their native cursor for usability.
- * ------------------------------------------------------------------ */
 @media (pointer: fine) {
   html.has-custom-cursor,
   html.has-custom-cursor *:not(input):not(textarea):not(select) {
@@ -234,9 +200,6 @@ html.lenis body {
   }
 }
 
-/* ------------------------------------------------------------------ *
- *  Kinetic wordmark — a slow highlight sweep clipped to the text.
- * ------------------------------------------------------------------ */
 @keyframes eikon-sheen {
   from {
     background-position: 220% 0;
@@ -266,9 +229,6 @@ html.lenis body {
   }
 }
 
-/* ------------------------------------------------------------------ *
- *  Film-grain texture overlay (premium tactility, very subtle)
- * ------------------------------------------------------------------ */
 .grain::after {
   content: "";
   position: fixed;

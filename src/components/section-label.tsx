@@ -1,8 +1,5 @@
 import { cn } from "@/lib/cn";
 
-/**
- * Small mono eyebrow with an index dot, e.g. "01 / Selected Work".
- */
 export function SectionLabel({
   index,
   children,

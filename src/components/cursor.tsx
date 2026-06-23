@@ -3,7 +3,6 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 
-/** SSR-safe reactive media-query hook (no setState-in-effect). */
 function useMediaQuery(query: string): boolean {
   return useSyncExternalStore(
     (onChange) => {
@@ -16,12 +15,6 @@ function useMediaQuery(query: string): boolean {
   );
 }
 
-/**
- * Minimal custom cursor: a single small dot that follows the pointer,
- * blended with mix-blend-difference so it reads on any background, and
- * nudges a little larger over interactive elements. Desktop + non-reduced
- * motion only.
- */
 export function Cursor() {
   const finePointer = useMediaQuery("(pointer: fine)");
   const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");

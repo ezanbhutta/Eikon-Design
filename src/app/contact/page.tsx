@@ -93,7 +93,6 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          {/* What to send */}
           <Reveal
             delay={140}
             className="h-fit rounded-3xl border border-line bg-ink-soft p-8 sm:p-10"

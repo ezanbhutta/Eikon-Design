@@ -2,12 +2,6 @@
 
 import { useTheme } from "next-themes";
 
-/**
- * Theme toggle. Which icon shows is driven purely by CSS off the
- * `data-theme` attribute (see globals.css), so there's no hydration
- * mismatch and no mounted-guard needed. The click reads the current
- * attribute from the DOM to decide the next theme.
- */
 export function ThemeToggle() {
   const { setTheme } = useTheme();
 
@@ -23,7 +17,6 @@ export function ThemeToggle() {
       aria-label="Toggle colour theme"
       className="flex h-10 w-10 items-center justify-center rounded-full text-bone transition-colors hover:bg-bone/10"
     >
-      {/* Moon — shown in dark mode */}
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -37,7 +30,6 @@ export function ThemeToggle() {
           strokeLinejoin="round"
         />
       </svg>
-      {/* Sun — shown in light mode */}
       <svg
         viewBox="0 0 24 24"
         fill="none"

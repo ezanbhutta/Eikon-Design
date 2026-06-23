@@ -1,10 +1,5 @@
 import { cn } from "@/lib/cn";
 
-/**
- * Infinite horizontal marquee. The content is duplicated so the track
- * can loop seamlessly (-50% translate). Pauses on hover. CSS only — see
- * .marquee-track / .marquee-mask in globals.css.
- */
 export function Marquee({
   items,
   className,

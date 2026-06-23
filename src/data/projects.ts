@@ -1,11 +1,3 @@
-/**
- * Portfolio projects. The source board for each project is cropped by
- * scripts/crop-boards.mjs into individual pieces:
- *   image   → the clean primary logo (thumbnail + case-study hero)
- *   board   → the full branding board
- *   gallery → [poster, social mockup, business-card mockup]
- */
-
 export interface Project {
   slug: string;
   name: string;
@@ -13,11 +5,8 @@ export interface Project {
   year: number;
   services: string[];
   summary: string;
-  /** Clean logo crop — primary visual. */
   image: string;
-  /** Full branding board. */
   board: string;
-  /** Mockup crops: poster, social, business card. */
   gallery: string[];
   featured?: boolean;
 }

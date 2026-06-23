@@ -71,7 +71,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
 
-      {/* Presentation board */}
       <section className="py-10 lg:py-16">
         <Container>
           <Reveal>
@@ -89,7 +88,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
 
-      {/* Details */}
       <section className="py-8 lg:py-12">
         <Container>
           <div className="grid gap-12 border-t border-line pt-10 lg:grid-cols-3">
@@ -100,7 +98,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
 
-      {/* Next + CTA */}
       <section className="mt-8 border-t border-line py-16">
         <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-faint">

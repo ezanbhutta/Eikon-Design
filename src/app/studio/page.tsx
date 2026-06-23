@@ -64,7 +64,6 @@ export default function StudioPage() {
         </Container>
       </section>
 
-      {/* Stats */}
       <section className="border-y border-line py-12">
         <Container>
           <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
@@ -82,7 +81,6 @@ export default function StudioPage() {
         </Container>
       </section>
 
-      {/* Principles */}
       <section className="py-24 lg:py-32">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
@@ -112,7 +110,6 @@ export default function StudioPage() {
         </Container>
       </section>
 
-      {/* Capabilities */}
       <section className="border-t border-line py-24 lg:py-32">
         <Container>
           <Reveal>
@@ -135,7 +132,6 @@ export default function StudioPage() {
         </Container>
       </section>
 
-      {/* CTA */}
       <section className="border-t border-line py-24 lg:py-32">
         <Container>
           <Reveal>

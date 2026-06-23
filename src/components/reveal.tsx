@@ -3,11 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
-/**
- * Fades + lifts its children into view on scroll. Pure CSS transition
- * (see [data-reveal] in globals.css) toggled by an IntersectionObserver,
- * so it adds negligible JS and respects prefers-reduced-motion.
- */
 export function Reveal({
   children,
   className,
@@ -16,14 +11,12 @@ export function Reveal({
 }: {
   children: React.ReactNode;
   className?: string;
-  /** Stagger in milliseconds. */
   delay?: number;
   as?: "div" | "li" | "section" | "span" | "ul";
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
-  // Callback ref keeps the type simple across the union of allowed tags.
   const setRef = useCallback((node: HTMLElement | null) => {
     ref.current = node;
   }, []);

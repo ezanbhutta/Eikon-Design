@@ -1,12 +1,7 @@
-/**
- * Central site configuration — real data from Eikon Designs
- * (Fiverr: kamran_ali8 · Behance: ezanbhutta).
- */
-
 export const site = {
   name: "Eikon",
   fullName: "Eikon Designs",
-  /** Greek "εἰκών" — image / icon. */
+
   tagline: "Logo & Brand Identity Studio",
   description:
     "Eikon Designs is a small studio making clean, modern logos and complete brand kits for founders around the world.",
@@ -15,7 +10,6 @@ export const site = {
   availability: "Available for new projects",
   founded: 2021,
 
-  /** Fiverr proof — Level 2 seller, 389 five-star reviews. */
   fiverr: "https://www.fiverr.com/kamran_ali8",
   fiverrGig:
     "https://www.fiverr.com/kamran_ali8/do-3d-modern-minimalist-business-logo-design",

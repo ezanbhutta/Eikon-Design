@@ -3,11 +3,6 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
-/**
- * Buttery smooth scrolling via Lenis. Disabled when the visitor prefers
- * reduced motion. Also intercepts in-page hash links (e.g. /#services)
- * so they glide instead of jumping. Renders nothing.
- */
 export function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -33,7 +28,7 @@ export function SmoothScroll() {
       );
       if (!anchor) return;
       const href = anchor.getAttribute("href") ?? "";
-      // Only handle same-page hash links ("#id" or "/#id").
+      // only intercept in-page hash links
       if (!(href.startsWith("#") || href.startsWith("/#"))) return;
       const id = href.split("#")[1];
       const target = id ? document.getElementById(id) : null;

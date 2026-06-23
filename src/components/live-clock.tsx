@@ -10,11 +10,6 @@ const fmt = () =>
     hour12: false,
   }).format(new Date());
 
-/**
- * Ticking local time — a small "engineered" HUD detail. Renders a stable
- * placeholder on the server and starts on the client (no hydration
- * mismatch); the initial tick is scheduled async, not set in the effect body.
- */
 export function LiveClock({ className }: { className?: string }) {
   const [time, setTime] = useState("");
 

@@ -4,17 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useReducedMotion } from "motion/react";
 
-/** Three.js can't SSR — load the constellation client-only. */
 const HeroScene = dynamic(() => import("@/components/hero-canvas-scene"), {
   ssr: false,
 });
 
-/**
- * Constellation scoped to the hero. Pauses its render loop the moment the
- * hero scrolls out of view (via IntersectionObserver) so it never costs a
- * frame while you're reading the rest of the page — the single biggest
- * smoothness win.
- */
 export function HeroCanvas({ className }: { className?: string }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);

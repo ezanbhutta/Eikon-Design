@@ -1,9 +1,5 @@
 import { cn } from "@/lib/cn";
 
-/**
- * Consistent page gutter + max width. Use `bleed` for full-width sections
- * that still need horizontal padding on small screens.
- */
 export function Container({
   children,
   className,

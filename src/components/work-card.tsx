@@ -19,7 +19,6 @@ export function WorkCard({
 }: {
   project: Project;
   className?: string;
-  /** Eager-load + prioritize for above-the-fold placements. */
   priority?: boolean;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -43,7 +42,6 @@ export function WorkCard({
       className={cn("group block", className)}
     >
       <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-line/60 bg-ink-soft">
-        {/* Parallax image (slightly scaled so the drift never exposes edges) */}
         <motion.div style={{ y, scale: 1.12 }} className="absolute inset-0">
           <Image
             src={project.board}
@@ -55,7 +53,6 @@ export function WorkCard({
           />
         </motion.div>
 
-        {/* Meta corners */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-start justify-between p-5">
           <span className="rounded-full bg-ink/55 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-bone/90 backdrop-blur-sm">
             {project.sector}
@@ -65,11 +62,9 @@ export function WorkCard({
           </span>
         </div>
 
-        {/* Hover veil */}
         <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/15" />
       </div>
 
-      {/* Caption */}
       <div className="mt-4 flex items-baseline justify-between gap-4">
         <h3 className="font-display text-xl text-bone transition-colors duration-300 group-hover:text-accent">
           {project.name}

@@ -1,10 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
-/**
- * Text link with an arrow that nudges on hover. Works for internal
- * routes and external/mailto links.
- */
 export function ArrowLink({
   href,
   children,

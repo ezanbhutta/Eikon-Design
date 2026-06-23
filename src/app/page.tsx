@@ -36,7 +36,6 @@ export default function Home() {
   );
 }
 
-/* ---------------------------------------------------------- Client strip */
 function ClientStrip() {
   return (
     <section className="border-y border-line py-8" aria-label="Selected clients">
@@ -45,7 +44,6 @@ function ClientStrip() {
   );
 }
 
-/* ----------------------------------------------------------- 3D showcase */
 function DimensionShowcase() {
   return (
     <section className="relative overflow-hidden border-t border-line py-24 lg:py-32">
@@ -77,7 +75,6 @@ function DimensionShowcase() {
   );
 }
 
-/* -------------------------------------------------------------- Services */
 function Services() {
   return (
     <section id="services" className="scroll-mt-24 border-t border-line py-24 lg:py-32">
@@ -135,7 +132,6 @@ function Services() {
   );
 }
 
-/* --------------------------------------------------------------- Pricing */
 function Pricing() {
   return (
     <section id="pricing" className="scroll-mt-24 border-t border-line py-24 lg:py-32">
@@ -215,7 +211,6 @@ function Pricing() {
   );
 }
 
-/* --------------------------------------------------------------- Process */
 function Process() {
   return (
     <section className="border-t border-line py-24 lg:py-32">
@@ -253,7 +248,6 @@ function Process() {
   );
 }
 
-/* ------------------------------------------------------ Philosophy/light */
 function Philosophy() {
   return (
     <section className="bg-paper text-paper-ink">
@@ -298,7 +292,6 @@ function Philosophy() {
   );
 }
 
-/* ---------------------------------------------------------------- Voices */
 function Voices() {
   return (
     <section className="border-t border-line py-24 lg:py-32">
@@ -325,7 +318,6 @@ function Voices() {
   );
 }
 
-/* ------------------------------------------------------------------- CTA */
 function ClosingCta() {
   return (
     <section className="overflow-hidden border-t border-line py-24 lg:py-36">

@@ -4,10 +4,6 @@ import { useRef } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { cn } from "@/lib/cn";
 
-/**
- * Pulls its child toward the cursor on hover (the "magnetic button"
- * effect). Spring-damped so it settles smoothly back to centre.
- */
 export function Magnetic({
   children,
   className,

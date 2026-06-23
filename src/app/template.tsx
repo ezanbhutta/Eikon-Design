@@ -2,11 +2,6 @@
 
 import { motion } from "motion/react";
 
-/**
- * A `template` (unlike `layout`) remounts on every navigation, so this
- * gives each route a smooth enter transition. Reduced-motion is handled
- * globally by MotionConfig in IntroProvider.
- */
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <motion.div

@@ -1,7 +1,3 @@
-/**
- * Studio content — real data from Eikon Designs' Fiverr gig + Behance.
- */
-
 export interface Service {
   id: string;
   title: string;
@@ -91,7 +87,6 @@ export interface Testimonial {
   role: string;
 }
 
-/** Verbatim client reviews from the Eikon Designs Fiverr gig (389 reviews). */
 export const testimonials: Testimonial[] = [
   {
     quote:
@@ -119,7 +114,6 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-/** Real project names (Behance · ezanbhutta). */
 export const clients: string[] = [
   "Sooshigo",
   "OceanExis",
@@ -143,7 +137,6 @@ export interface Package {
   featured?: boolean;
 }
 
-/** Real Fiverr packages. */
 export const packages: Package[] = [
   {
     name: "Basic",

@@ -6,7 +6,6 @@ import { Points, PointMaterial } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 
-/** Static point field, generated once at module load (kept out of render). */
 const POSITIONS = (() => {
   const count = 2000;
   const arr = new Float32Array(count * 3);
@@ -21,7 +20,6 @@ const POSITIONS = (() => {
   return arr;
 })();
 
-/** Drifting point field that tilts toward the mouse anywhere on the page. */
 function Constellation() {
   const ref = useRef<THREE.Points>(null);
   const mouse = useRef({ x: 0, y: 0 });
@@ -39,7 +37,7 @@ function Constellation() {
     const p = ref.current;
     if (!p) return;
     p.rotation.y += delta * 0.018;
-    // Snappy lerp (≈0.12) toward the mouse so it tracks without lag.
+    // ease toward the cursor instead of snapping
     p.rotation.x = THREE.MathUtils.lerp(p.rotation.x, -mouse.current.y * 0.32, 0.12);
     p.rotation.z = THREE.MathUtils.lerp(p.rotation.z, mouse.current.x * 0.26, 0.12);
   });
