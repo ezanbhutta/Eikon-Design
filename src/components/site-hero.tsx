@@ -9,7 +9,6 @@ import { HeroCanvas } from "@/components/hero-canvas";
 import { LiveClock } from "@/components/live-clock";
 import { useIntroDone } from "@/components/intro";
 import { site } from "@/data/site";
-import { cn } from "@/lib/cn";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -32,7 +31,7 @@ export function SiteHero() {
   const introDone = useIntroDone();
 
   return (
-    <section className="relative overflow-hidden pb-16 pt-36 sm:pt-44 lg:pb-24 lg:pt-52">
+    <section className="relative overflow-hidden pb-16 pt-36 sm:pt-44 lg:pb-20 lg:pt-52">
       <HeroCanvas className="pointer-events-none absolute inset-0 opacity-50" />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-ink via-ink/40 to-transparent" />
       <Container className="relative z-10">
@@ -41,14 +40,12 @@ export function SiteHero() {
           initial="hidden"
           animate={introDone ? "show" : "hidden"}
         >
-          <motion.div
+          <motion.p
             variants={fadeUp}
-            className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-faint"
+            className="font-mono text-xs uppercase tracking-[0.24em] text-faint"
           >
-            <span>
-              {site.name} — {site.tagline}
-            </span>
-          </motion.div>
+            Independent logo &amp; identity studio
+          </motion.p>
 
           <motion.h1
             variants={word}
@@ -57,9 +54,21 @@ export function SiteHero() {
             {site.name}
           </motion.h1>
 
+          <motion.div
+            variants={fadeUp}
+            className="mt-3 flex flex-wrap items-baseline gap-x-5 gap-y-1"
+          >
+            <p className="font-serif text-3xl italic leading-none text-bone sm:text-4xl lg:text-5xl">
+              Logos, drawn properly.
+            </p>
+            <span className="font-mono text-xs tracking-[0.18em] text-faint">
+              ↘ since {site.founded}
+            </span>
+          </motion.div>
+
           <motion.p
             variants={fadeUp}
-            className="mt-8 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl"
+            className="mt-9 max-w-xl text-lg leading-relaxed text-muted"
           >
             We&rsquo;re a small studio making clean, modern logos and complete
             brand kits — for founders who want their business to look the part
@@ -68,7 +77,7 @@ export function SiteHero() {
 
           <motion.div
             variants={fadeUp}
-            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4"
+            className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4"
           >
             <Magnetic>
               <Link
@@ -83,46 +92,27 @@ export function SiteHero() {
             </ArrowLink>
           </motion.div>
 
-          <motion.dl
+          <motion.div
             variants={fadeUp}
-            className="mt-16 grid grid-cols-2 gap-6 border-t border-line pt-6 font-mono text-xs uppercase tracking-[0.14em] sm:grid-cols-4"
+            className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-5 font-mono text-xs uppercase tracking-[0.16em] text-faint"
           >
-            <Meta term="Discipline" value="Logo & Identity" />
-            <Meta term="Established" value={String(site.founded)} />
-            <Meta term="Local" value={<LiveClock />} />
-            <Meta
-              term="Status"
-              accent
-              value={
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-                  </span>
-                  Available
-                </span>
-              }
-            />
-          </motion.dl>
+            <span>Multan — worldwide</span>
+            <Divider />
+            <span>
+              Local <LiveClock className="text-muted" />
+            </span>
+            <Divider />
+            <span className="inline-flex items-center gap-2 text-muted">
+              <span className="inline-block h-1.5 w-1.5 bg-accent" aria-hidden="true" />
+              Open for new work
+            </span>
+          </motion.div>
         </motion.div>
       </Container>
     </section>
   );
 }
 
-function Meta({
-  term,
-  value,
-  accent,
-}: {
-  term: string;
-  value: React.ReactNode;
-  accent?: boolean;
-}) {
-  return (
-    <div>
-      <dt className="text-faint">{term}</dt>
-      <dd className={cn("mt-1.5", accent ? "text-accent" : "text-bone")}>{value}</dd>
-    </div>
-  );
+function Divider() {
+  return <span className="h-3 w-px bg-line" aria-hidden="true" />;
 }

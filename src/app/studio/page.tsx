@@ -113,7 +113,7 @@ export default function StudioPage() {
       <section className="border-t border-line py-24 lg:py-32">
         <Container>
           <Reveal>
-            <SectionLabel index="—">Capabilities</SectionLabel>
+            <SectionLabel>Capabilities</SectionLabel>
           </Reveal>
           <ul className="mt-10 grid gap-x-12 gap-y-4 sm:grid-cols-2">
             {services.map((service) => (

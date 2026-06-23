@@ -1,23 +1,14 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
-import { Marquee } from "@/components/marquee";
 import { SectionLabel } from "@/components/section-label";
 import { ArrowLink } from "@/components/arrow-link";
 import { SiteHero } from "@/components/site-hero";
 import { Magnetic } from "@/components/magnetic";
 import { Logo3D } from "@/components/logo-3d";
 import { WorkShowcase } from "@/components/work-showcase";
-import {
-  services,
-  process,
-  stats,
-  testimonials,
-  clients,
-  packages,
-} from "@/data/studio";
+import { services, process, testimonials, clients, packages } from "@/data/studio";
 import { site } from "@/data/site";
-import { cn } from "@/lib/cn";
 
 export default function Home() {
   return (
@@ -38,8 +29,20 @@ export default function Home() {
 
 function ClientStrip() {
   return (
-    <section className="border-y border-line py-8" aria-label="Selected clients">
-      <Marquee items={clients} />
+    <section aria-label="Selected clients" className="border-y border-line">
+      <Container className="flex flex-col gap-4 py-7 md:flex-row md:items-baseline md:gap-10">
+        <p className="shrink-0 font-mono text-xs uppercase tracking-[0.2em] text-faint">
+          Recently for
+        </p>
+        <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 font-display text-lg text-bone/60 sm:text-xl">
+          {clients.map((name, i) => (
+            <li key={name} className="flex items-center gap-3">
+              {i > 0 && <span className="text-line">·</span>}
+              {name}
+            </li>
+          ))}
+        </ul>
+      </Container>
     </section>
   );
 }
@@ -51,14 +54,11 @@ function DimensionShowcase() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="max-w-xl">
             <Reveal>
-              <SectionLabel index="◇">In three dimensions</SectionLabel>
-            </Reveal>
-            <Reveal delay={80}>
+              <SectionLabel>Off the screen</SectionLabel>
               <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
-                Your logo has to work everywhere.
+                A logo has to work{" "}
+                <span className="font-serif font-normal italic">everywhere.</span>
               </h2>
-            </Reveal>
-            <Reveal delay={160}>
               <p className="mt-6 text-muted">
                 On a phone, a shopfront, a business card, a t-shirt — it all has
                 to look right. Give the mark a spin; it holds up from every
@@ -66,7 +66,7 @@ function DimensionShowcase() {
               </p>
             </Reveal>
           </div>
-          <Reveal delay={120}>
+          <Reveal>
             <Logo3D className="h-[24rem] w-full sm:h-[28rem] lg:h-[32rem]" />
           </Reveal>
         </div>
@@ -77,19 +77,21 @@ function DimensionShowcase() {
 
 function Services() {
   return (
-    <section id="services" className="scroll-mt-24 border-t border-line py-24 lg:py-32">
+    <section
+      id="services"
+      className="scroll-mt-24 border-t border-line py-24 lg:py-32"
+    >
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Reveal>
-              <SectionLabel index="02">What we do</SectionLabel>
-            </Reveal>
-            <Reveal delay={80}>
+              <SectionLabel>What we do</SectionLabel>
               <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
-                We make logos — and everything around them.
+                We make logos — and{" "}
+                <span className="font-serif font-normal italic text-muted">
+                  everything around them.
+                </span>
               </h2>
-            </Reveal>
-            <Reveal delay={160}>
               <p className="mt-6 max-w-md text-muted">
                 Take just the logo, or the full kit. Either way, every piece is
                 designed to fit together.
@@ -97,31 +99,24 @@ function Services() {
             </Reveal>
           </div>
 
-          <ul className="lg:pt-2">
-            {services.map((service, i) => (
-              <Reveal as="li" key={service.id} delay={i * 60}>
-                <div className="group grid gap-4 border-t border-line py-8 sm:grid-cols-[auto_1fr]">
-                  <span className="font-mono text-sm text-accent">
-                    0{i + 1}
-                  </span>
-                  <div>
+          <ul>
+            {services.map((service) => (
+              <Reveal as="li" key={service.id}>
+                <div className="group border-t border-line py-8">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
                     <h3 className="font-display text-2xl text-bone transition-colors group-hover:text-accent sm:text-3xl">
                       {service.title}
                     </h3>
-                    <p className="mt-3 max-w-lg text-muted">
-                      {service.description}
-                    </p>
-                    <ul className="mt-5 flex flex-wrap gap-2">
-                      {service.deliverables.map((d) => (
-                        <li
-                          key={d}
-                          className="rounded-full border border-line px-3 py-1 text-xs text-faint"
-                        >
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
+                    <span className="font-mono text-xs uppercase tracking-[0.16em] text-faint">
+                      {service.deliverables.length} deliverables
+                    </span>
                   </div>
+                  <p className="mt-3 max-w-lg text-muted">
+                    {service.description}
+                  </p>
+                  <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-faint">
+                    {service.deliverables.join("  ·  ")}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -134,74 +129,68 @@ function Services() {
 
 function Pricing() {
   return (
-    <section id="pricing" className="scroll-mt-24 border-t border-line py-24 lg:py-32">
+    <section
+      id="pricing"
+      className="scroll-mt-24 border-t border-line py-24 lg:py-32"
+    >
       <Container>
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <Reveal>
-              <SectionLabel>Pricing</SectionLabel>
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="font-display mt-5 text-4xl leading-tight tracking-tight text-bone sm:text-5xl">
-                Simple packages, delivered fast.
-              </h2>
-            </Reveal>
-          </div>
-          <Reveal delay={120}>
-            <p className="max-w-xs font-mono text-xs uppercase leading-relaxed tracking-[0.16em] text-faint">
+          <Reveal className="max-w-2xl">
+            <SectionLabel>Pricing</SectionLabel>
+            <h2 className="font-display mt-5 text-4xl leading-tight tracking-tight text-bone sm:text-5xl">
+              Three ways to{" "}
+              <span className="font-serif font-normal italic">start.</span>
+            </h2>
+          </Reveal>
+          <Reveal className="max-w-xs">
+            <p className="font-mono text-xs uppercase leading-relaxed tracking-[0.16em] text-faint">
               Ordered through Fiverr · unlimited revisions · 389 five-star
               reviews
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {packages.map((pkg, i) => (
-            <Reveal key={pkg.name} delay={i * 80}>
-              <div
-                className={cn(
-                  "flex h-full flex-col rounded-2xl border p-8",
-                  pkg.featured ? "border-accent/60 bg-ink-soft" : "border-line",
-                )}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
-                    {pkg.name}
-                  </span>
-                  {pkg.featured && (
-                    <span className="rounded-full bg-accent px-3 py-1 text-[0.6rem] font-medium uppercase tracking-wider text-accent-ink">
-                      Popular
-                    </span>
-                  )}
+        <div className="mt-14 border-t border-line">
+          {packages.map((pkg) => (
+            <Reveal key={pkg.name}>
+              <div className="group grid gap-x-10 gap-y-6 border-b border-line py-10 md:grid-cols-[1fr_1.5fr_auto] md:items-start lg:py-12">
+                <div>
+                  <div className="flex items-baseline gap-3">
+                    <h3 className="font-display text-2xl text-bone">
+                      {pkg.name}
+                    </h3>
+                    {pkg.featured && (
+                      <span className="font-serif text-sm italic text-accent">
+                        most ordered
+                      </span>
+                    )}
+                  </div>
+                  <p className="font-display mt-4 text-5xl tracking-tight text-bone lg:text-6xl">
+                    {pkg.price}
+                  </p>
+                  <p className="mt-2 text-sm text-muted">{pkg.summary}</p>
                 </div>
-                <p className="font-display mt-6 text-5xl tracking-tight text-bone">
-                  {pkg.price}
-                </p>
-                <p className="mt-2 text-sm text-muted">{pkg.summary}</p>
-                <ul className="mt-8 flex-1 space-y-3">
+
+                <ul className="grid gap-y-2 text-sm text-muted sm:grid-cols-2 md:pt-2">
                   {pkg.features.map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-3 text-sm text-muted"
-                    >
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                    <li key={f} className="flex gap-2.5">
+                      <span className="text-accent" aria-hidden="true">
+                        —
+                      </span>
                       {f}
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href={site.fiverrGig}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-transform hover:-translate-y-0.5",
-                    pkg.featured
-                      ? "bg-accent text-accent-ink"
-                      : "border border-line text-bone hover:bg-bone hover:text-ink",
-                  )}
-                >
-                  Order {pkg.name}
-                </Link>
+
+                <div className="md:pt-2">
+                  <ArrowLink
+                    href={site.fiverrGig}
+                    external
+                    className="text-bone"
+                  >
+                    Order {pkg.name}
+                  </ArrowLink>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -215,34 +204,33 @@ function Process() {
   return (
     <section className="border-t border-line py-24 lg:py-32">
       <Container>
-        <div className="max-w-2xl">
-          <Reveal>
-            <SectionLabel index="03">How we work</SectionLabel>
-          </Reveal>
-          <Reveal delay={80}>
-            <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
-              From your brief to the final files.
-            </h2>
-          </Reveal>
-        </div>
+        <Reveal className="max-w-2xl">
+          <SectionLabel>How we work</SectionLabel>
+          <h2 className="font-display mt-5 text-4xl leading-tight text-bone sm:text-5xl">
+            From your brief to the{" "}
+            <span className="font-serif font-normal italic">final files.</span>
+          </h2>
+        </Reveal>
 
-        <div className="mt-14 grid gap-px overflow-hidden border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-          {process.map((step, i) => (
-            <Reveal key={step.index} delay={i * 70} className="bg-ink">
-              <div className="group flex h-full flex-col p-8 lg:p-10">
-                <span className="font-mono text-3xl text-faint transition-colors duration-300 group-hover:text-accent">
+        <ol className="mt-12 lg:mt-16">
+          {process.map((step) => (
+            <Reveal as="li" key={step.index}>
+              <div className="grid items-baseline gap-3 border-t border-line py-8 sm:grid-cols-[5rem_1fr] sm:gap-10 lg:py-10">
+                <span className="font-serif text-4xl italic text-faint sm:text-5xl">
                   {step.index}
                 </span>
-                <h3 className="font-display mt-12 text-2xl tracking-tight text-bone">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {step.description}
-                </p>
+                <div className="grid gap-3 sm:grid-cols-[1fr_1.5fr] sm:gap-10">
+                  <h3 className="font-display text-2xl tracking-tight text-bone">
+                    {step.title}
+                  </h3>
+                  <p className="leading-relaxed text-muted">
+                    {step.description}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </Container>
     </section>
   );
@@ -252,20 +240,19 @@ function Philosophy() {
   return (
     <section className="bg-paper text-paper-ink">
       <Container className="py-24 lg:py-36">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+        <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-end">
           <div>
             <Reveal>
-              <SectionLabel index="04" tone="light">
-                Why {site.name}
-              </SectionLabel>
-            </Reveal>
-            <Reveal delay={80}>
+              <SectionLabel tone="light">Why {site.name}</SectionLabel>
               <blockquote className="font-display mt-7 text-balance text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">
                 People size up a brand in seconds. A good logo is what makes
-                those seconds <em className="italic">land in your favour.</em>
+                those seconds{" "}
+                <em className="font-serif font-normal italic">
+                  land in your favour.
+                </em>
               </blockquote>
             </Reveal>
-            <Reveal delay={160}>
+            <Reveal>
               <div className="mt-10">
                 <ArrowLink href="/studio" className="text-paper-ink">
                   More about the studio
@@ -274,17 +261,11 @@ function Philosophy() {
             </Reveal>
           </div>
 
-          <Reveal delay={120}>
-            <dl className="grid grid-cols-2 gap-x-8 gap-y-10 border-t border-paper-ink/15 pt-10">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="font-display text-5xl lg:text-6xl">
-                    {stat.value}
-                  </dt>
-                  <dd className="mt-2 text-sm text-paper-muted">{stat.label}</dd>
-                </div>
-              ))}
-            </dl>
+          <Reveal>
+            <p className="font-serif text-2xl italic leading-relaxed text-paper-ink/75 lg:text-[1.7rem] lg:leading-relaxed">
+              389 five-star reviews. A 4.9 average. We usually reply within the
+              hour — in any of five languages.
+            </p>
           </Reveal>
         </div>
       </Container>
@@ -293,23 +274,33 @@ function Philosophy() {
 }
 
 function Voices() {
+  const [lead, ...rest] = testimonials;
   return (
     <section className="border-t border-line py-24 lg:py-32">
       <Container>
         <Reveal>
-          <SectionLabel index="05">In their words</SectionLabel>
+          <SectionLabel>In their words</SectionLabel>
         </Reveal>
-        <div className="mt-12 grid gap-12 lg:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.author} delay={i * 100}>
-              <figure className="flex h-full flex-col">
-                <blockquote className="font-display text-2xl leading-snug text-bone sm:text-3xl">
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="mt-8 text-sm text-muted">
-                  <span className="text-bone">{t.author}</span> — {t.role}
-                </figcaption>
-              </figure>
+        <Reveal>
+          <figure className="mt-10 max-w-4xl">
+            <blockquote className="font-display text-3xl leading-snug text-bone sm:text-4xl">
+              &ldquo;{lead.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-faint">
+              {lead.author} — {lead.role}
+            </figcaption>
+          </figure>
+        </Reveal>
+
+        <div className="mt-16 grid gap-x-10 gap-y-12 border-t border-line pt-12 sm:grid-cols-3">
+          {rest.map((t) => (
+            <Reveal as="figure" key={t.author}>
+              <blockquote className="font-serif text-lg italic leading-relaxed text-muted">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-faint">
+                {t.author}
+              </figcaption>
             </Reveal>
           ))}
         </div>
@@ -325,12 +316,16 @@ function ClosingCta() {
         <Reveal>
           <SectionLabel>Start a project</SectionLabel>
         </Reveal>
-        <Reveal delay={80}>
-          <h2 className="font-display mt-8 text-[16vw] font-extrabold leading-[0.84] tracking-[-0.04em] text-bone lg:text-[12vw]">
-            Let&rsquo;s build it.
+        <Reveal>
+          <h2 className="font-display mt-8 text-[14vw] font-extrabold leading-[0.85] tracking-[-0.04em] text-bone lg:text-[11vw]">
+            Let&rsquo;s draw{" "}
+            <span className="font-serif font-normal italic tracking-normal">
+              your
+            </span>{" "}
+            logo.
           </h2>
         </Reveal>
-        <Reveal delay={140}>
+        <Reveal>
           <div className="mt-10 flex flex-col gap-8 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-md text-muted">
               Got a business that deserves a sharper logo? Tell us about it —

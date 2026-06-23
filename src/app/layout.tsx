@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Newsreader, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/data/site";
@@ -13,6 +13,14 @@ import { ThemeProvider } from "@/components/theme-provider";
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -76,7 +84,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${bricolage.variable} ${switzer.variable} ${geistMono.variable}`}
+      className={`${bricolage.variable} ${newsreader.variable} ${switzer.variable} ${geistMono.variable}`}
     >
       <body className="grain min-h-dvh antialiased">
         <a

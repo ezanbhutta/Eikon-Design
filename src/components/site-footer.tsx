@@ -64,8 +64,8 @@ export function SiteFooter() {
 
         <div className="mt-16 space-y-4 border-t border-line pt-8">
           <p className="font-mono text-xs uppercase tracking-[0.16em] text-faint">
-            Typeset in Bricolage Grotesque · Switzer · Geist Mono — built with
-            Next.js
+            Typeset in Bricolage Grotesque · Newsreader · Switzer · Geist Mono —
+            built with Next.js
           </p>
           <div className="flex flex-col gap-2 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
             <p>

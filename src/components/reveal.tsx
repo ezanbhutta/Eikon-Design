@@ -12,7 +12,7 @@ export function Reveal({
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  as?: "div" | "li" | "section" | "span" | "ul";
+  as?: "div" | "li" | "ol" | "ul" | "section" | "span" | "figure";
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);

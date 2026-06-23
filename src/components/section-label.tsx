@@ -1,12 +1,10 @@
 import { cn } from "@/lib/cn";
 
 export function SectionLabel({
-  index,
   children,
   className,
   tone = "dark",
 }: {
-  index?: string;
   children: React.ReactNode;
   className?: string;
   tone?: "dark" | "light";
@@ -14,13 +12,15 @@ export function SectionLabel({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em]",
+        "inline-flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.28em]",
         tone === "dark" ? "text-faint" : "text-paper-muted",
         className,
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-      {index && <span className="text-accent">{index}</span>}
+      <span
+        aria-hidden="true"
+        className="h-px w-7 bg-current opacity-50"
+      />
       {children}
     </span>
   );
