@@ -9,7 +9,7 @@
 
   --color-bone: #f2f0ea;
   --color-muted: #8a8a82;
-  --color-faint: #5f5f58;
+  --color-faint: #7f7f77;
 
   --color-paper: #f3efe6;
   --color-paper-ink: #15140f;
@@ -43,7 +43,7 @@ html[data-theme="light"] {
 
   --color-bone: #15140f;
   --color-muted: #57564e;
-  --color-faint: #8a887d;
+  --color-faint: #6e6c62;
 
   --color-paper: #15140f;
   --color-paper-ink: #faf8f2;
@@ -162,6 +162,41 @@ html[data-theme="light"] .theme-icon-light {
 .link-line:hover,
 .link-line:focus-visible {
   background-size: 100% 1px;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--color-line);
+  background-color: transparent;
+  padding: 0.5rem 0 0.6rem;
+  color: var(--color-bone);
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color 0.3s var(--ease-out-expo);
+}
+
+.input::placeholder {
+  color: var(--color-faint);
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+}
+
+select.input {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237f7f77' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.1rem center;
+  padding-right: 1.5rem;
+}
+
+select.input option {
+  background-color: var(--color-ink-card);
+  color: var(--color-bone);
 }
 
 html.lenis,

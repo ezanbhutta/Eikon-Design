@@ -3,22 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { SectionLabel } from "@/components/section-label";
+import { ContactForm } from "@/components/contact-form";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a logo or brand identity project with Eikon Designs. Message us on Fiverr or order a package directly — 389 five-star reviews.",
+    "Start a logo or brand identity project with Eikon Designs. Send us a brief or message us on Fiverr — 389 five-star reviews.",
 };
-
-const checklist = [
-  "Company name",
-  "Tagline (optional)",
-  "What your business does",
-  "Preferred logo style (optional)",
-  "Colour preferences (optional)",
-  "Sample logos you like (optional)",
-];
 
 export default function ContactPage() {
   return (
@@ -36,9 +28,9 @@ export default function ContactPage() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-7 max-w-md text-lg leading-relaxed text-muted">
-                We work through Fiverr — message us for a custom quote, or order
-                a package directly. As a Level&nbsp;2 seller we usually reply
-                within the hour.
+                Tell us about your project and we&rsquo;ll get back within the
+                hour. Prefer Fiverr? That works too — we&rsquo;re a Level&nbsp;2
+                seller with 389 five-star reviews.
               </p>
             </Reveal>
 
@@ -58,17 +50,9 @@ export default function ContactPage() {
                   href={site.fiverr}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
-                >
-                  Message us on Fiverr
-                </Link>
-                <Link
-                  href={site.fiverrGig}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-line px-7 py-3.5 text-sm font-medium text-bone transition-colors hover:bg-bone hover:text-ink"
                 >
-                  Order a package
+                  Message us on Fiverr
                 </Link>
               </div>
             </Reveal>
@@ -93,30 +77,8 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          <Reveal
-            delay={140}
-            className="h-fit rounded-3xl border border-line bg-ink-soft p-8 sm:p-10"
-          >
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-faint">
-              To get started, send
-            </p>
-            <ul className="mt-6 space-y-4">
-              {checklist.map((item, i) => (
-                <li
-                  key={item}
-                  className="flex items-baseline gap-4 border-b border-line/70 pb-4 text-bone last:border-0"
-                >
-                  <span className="font-mono text-xs text-accent">
-                    0{i + 1}
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm leading-relaxed text-muted">
-              Have your own idea or references? Even better — send them along and
-              we&rsquo;ll take it from there.
-            </p>
+          <Reveal delay={140}>
+            <ContactForm />
           </Reveal>
         </div>
       </Container>
