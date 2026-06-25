@@ -1,12 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { Container } from "@/components/container";
-import { ArrowLink } from "@/components/arrow-link";
-import { Magnetic } from "@/components/magnetic";
-import { HeroCanvas } from "@/components/hero-canvas";
-import { LiveClock } from "@/components/live-clock";
+import { Squiggle } from "@/components/squiggle";
 import { useIntroDone } from "@/components/intro";
 import { site } from "@/data/site";
 
@@ -14,105 +12,98 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const stage: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 };
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
-};
-
-const word: Variants = {
-  hidden: { opacity: 0, y: 56 },
-  show: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE } },
+  hidden: { opacity: 0, y: 26 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE } },
 };
 
 export function SiteHero() {
   const introDone = useIntroDone();
 
   return (
-    <section className="relative overflow-hidden pb-16 pt-36 sm:pt-44 lg:pb-20 lg:pt-52">
-      <HeroCanvas className="pointer-events-none absolute inset-0 opacity-50" />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-ink via-ink/40 to-transparent" />
-      <Container className="relative z-10">
+    <section className="relative overflow-hidden pb-20 pt-36 sm:pt-44 lg:pb-28 lg:pt-52">
+      <Squiggle
+        variant="scribble"
+        className="absolute left-[6%] top-32 hidden h-20 w-20 text-ink opacity-80 lg:block"
+      />
+      <Squiggle
+        variant="loop"
+        className="absolute right-[8%] top-44 hidden h-16 w-24 lg:block"
+      />
+
+      <Container className="relative">
         <motion.div
           variants={stage}
           initial="hidden"
           animate={introDone ? "show" : "hidden"}
+          className="mx-auto max-w-4xl text-center"
         >
           <motion.p
             variants={fadeUp}
-            className="font-mono text-xs uppercase tracking-[0.24em] text-faint"
+            className="text-sm font-medium uppercase tracking-[0.04em] text-charcoal"
           >
-            Independent logo &amp; identity studio
+            ( {site.fullName} — est. {site.founded} )
           </motion.p>
 
           <motion.h1
-            variants={word}
-            className="wordmark-sheen font-display mt-6 text-[24vw] font-extrabold leading-[0.85] tracking-[-0.04em] lg:text-[19vw]"
-          >
-            {site.name}
-          </motion.h1>
-
-          <motion.div
             variants={fadeUp}
-            className="mt-3 flex flex-wrap items-baseline gap-x-5 gap-y-1"
+            className="font-display mt-8 text-[2.65rem] font-normal leading-[1.04] tracking-[-0.01em] text-ink sm:text-6xl lg:text-[5rem] lg:leading-[1.02]"
           >
-            <p className="font-serif text-3xl italic leading-none text-bone sm:text-4xl lg:text-5xl">
-              Logos, drawn properly.
-            </p>
-            <span className="font-mono text-xs tracking-[0.18em] text-faint">
-              ↘ since {site.founded}
-            </span>
-          </motion.div>
+            We draw logos that make{" "}
+            <span className="relative inline-block">
+              <Image
+                src="/eikon-logo.png"
+                alt=""
+                width={120}
+                height={120}
+                priority
+                className="inline-block h-[0.92em] w-[0.92em] translate-y-[0.12em] rounded-full border-[1.5px] border-ink align-baseline"
+              />
+            </span>{" "}
+            founders look{" "}
+            <em className="relative font-normal italic">
+              the part
+              <Squiggle
+                variant="underline"
+                className="absolute -bottom-2 left-0 h-3 w-full text-ink"
+              />
+            </em>{" "}
+            from day one.
+          </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-9 max-w-xl text-lg leading-relaxed text-muted"
+            className="mx-auto mt-9 max-w-md text-base leading-[1.55] text-charcoal"
           >
-            We&rsquo;re a small studio making clean, modern logos and complete
-            brand kits — for founders who want their business to look the part
-            from day one.
+            ( A small logo &amp; brand identity studio in Multan, working with
+            founders worldwide. Clean, modern marks &mdash; and the full kit
+            around them. )
           </motion.p>
 
           <motion.div
             variants={fadeUp}
-            className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4"
+            className="mt-11 flex flex-col items-center justify-center gap-6 sm:flex-row"
           >
-            <Magnetic>
-              <Link
-                href="/work"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-accent-ink transition-transform hover:-translate-y-0.5"
-              >
-                View selected work
-              </Link>
-            </Magnetic>
-            <ArrowLink href="/contact" className="text-bone">
-              Start a project
-            </ArrowLink>
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-5 font-mono text-xs uppercase tracking-[0.16em] text-faint"
-          >
-            <span>Multan — worldwide</span>
-            <Divider />
-            <span>
-              Local <LiveClock className="text-muted" />
-            </span>
-            <Divider />
-            <span className="inline-flex items-center gap-2 text-muted">
-              <span className="inline-block h-1.5 w-1.5 bg-accent" aria-hidden="true" />
-              Open for new work
-            </span>
+            <Link href="/work" className="pill">
+              See the work
+            </Link>
+            <Link
+              href="/contact"
+              className="ink-link text-base font-medium link-line"
+            >
+              or start a project &rarr;
+            </Link>
           </motion.div>
         </motion.div>
       </Container>
+
+      <Squiggle
+        variant="wave"
+        className="mx-auto mt-16 hidden h-6 w-72 text-ink opacity-70 lg:block"
+      />
     </section>
   );
-}
-
-function Divider() {
-  return <span className="h-3 w-px bg-line" aria-hidden="true" />;
 }

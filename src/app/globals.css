@@ -1,98 +1,77 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0b0b0c;
-  --color-ink-soft: #101012;
-  --color-ink-card: #111113;
-  --color-line: #222226;
-  --color-line-soft: #17171b;
+  --color-paper: #f5f5f3;
+  --color-ink: #000000;
+  --color-ink-soft: #ffffff;
+  --color-ink-card: #ffffff;
+  --color-line: #111111;
+  --color-line-soft: #deded8;
 
-  --color-bone: #f2f0ea;
-  --color-muted: #8a8a82;
-  --color-faint: #7f7f77;
+  --color-bone: #000000;
+  --color-muted: #333333;
+  --color-faint: #5e5e56;
 
-  --color-paper: #f3efe6;
-  --color-paper-ink: #15140f;
-  --color-paper-muted: #5d5b52;
+  --color-white: #ffffff;
+  --color-charcoal: #333333;
+  --color-dusty: #81aed9;
+  --color-cobalt: #55a1ea;
 
-  --color-accent: #ff5a36;
-  --color-accent-deep: #e8431f;
-  --color-accent-ink: #1a0a02;
+  --color-paper-ink: #000000;
+  --color-paper-muted: #444444;
+
+  --color-accent: #ff8562;
+  --color-accent-deep: #ff6b4c;
+  --color-accent-ink: #2a1206;
 
   --color-brand-pink: #ff4f93;
   --color-brand-coral: #ff6b4c;
+
+  --shadow-offset: 5px -5px 0 0 #333333;
+  --shadow-offset-sm: 4px -4px 0 0 #333333;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 @theme inline {
-  --font-sans: var(--font-switzer), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-bricolage), var(--font-switzer), ui-sans-serif,
-    sans-serif;
-  --font-serif: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
-}
-
-html[data-theme="light"] {
-  --color-ink: #faf8f2;
-  --color-ink-soft: #f0ece2;
-  --color-ink-card: #ffffff;
-  --color-line: #ddd8cc;
-  --color-line-soft: #e9e4d8;
-
-  --color-bone: #15140f;
-  --color-muted: #57564e;
-  --color-faint: #6e6c62;
-
-  --color-paper: #15140f;
-  --color-paper-ink: #faf8f2;
-  --color-paper-muted: #a7a399;
-
-  color-scheme: light;
-}
-
-.theme-icon-light {
-  display: none;
-}
-html[data-theme="light"] .theme-icon-dark {
-  display: none;
-}
-html[data-theme="light"] .theme-icon-light {
-  display: block;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-manrope), ui-monospace, monospace;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
-    background-color: var(--color-ink);
+    background-color: var(--color-paper);
     color: var(--color-bone);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv01", "cv11";
+    letter-spacing: -0.036em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-accent-ink);
+    background-color: var(--color-dusty);
+    color: #000000;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-cobalt);
     outline-offset: 3px;
     border-radius: 2px;
   }
 
-  .font-display {
-    font-optical-sizing: auto;
-    letter-spacing: -0.02em;
+  .font-display,
+  .font-serif {
+    letter-spacing: normal;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -153,7 +132,7 @@ html[data-theme="light"] .theme-icon-light {
 
 .link-line {
   background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1px;
+  background-size: 0% 1.5px;
   background-position: 0 100%;
   background-repeat: no-repeat;
   transition: background-size 0.5s var(--ease-out-expo);
@@ -161,16 +140,76 @@ html[data-theme="light"] .theme-icon-light {
 
 .link-line:hover,
 .link-line:focus-visible {
-  background-size: 100% 1px;
+  background-size: 100% 1.5px;
+}
+
+.ink-link {
+  color: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+
+.ink-link:hover {
+  opacity: 0.7;
+}
+
+.offset {
+  box-shadow: var(--shadow-offset);
+}
+
+.offset-sm {
+  box-shadow: var(--shadow-offset-sm);
+}
+
+.paper-card {
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-dusty);
+  border-radius: 30px;
+  box-shadow: var(--shadow-offset);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1.5px solid #000000;
+  border-radius: 3000px;
+  background-color: var(--color-white);
+  color: #000000;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1.05rem 2.1rem;
+  box-shadow: var(--shadow-offset-sm);
+  transition:
+    transform 0.25s var(--ease-out-expo),
+    box-shadow 0.25s var(--ease-out-expo);
+}
+
+.pill:hover {
+  transform: translate(2px, -2px);
+  box-shadow: 6px -6px 0 0 #333333;
+}
+
+.pill:active {
+  transform: translate(-1px, 1px);
+  box-shadow: 2px -2px 0 0 #333333;
+}
+
+.pill-accent {
+  background-color: #000000;
+  color: var(--color-paper);
 }
 
 .input {
   display: block;
   width: 100%;
-  border-bottom: 1px solid var(--color-line);
-  background-color: transparent;
-  padding: 0.5rem 0 0.6rem;
-  color: var(--color-bone);
+  border: 1.5px solid var(--color-dusty);
+  border-radius: 30px;
+  background-color: var(--color-white);
+  padding: 0.85rem 1.25rem;
+  color: #000000;
   font-size: 1rem;
   line-height: 1.5;
   outline: none;
@@ -178,25 +217,27 @@ html[data-theme="light"] .theme-icon-light {
 }
 
 .input::placeholder {
-  color: var(--color-faint);
+  color: #828282;
 }
 
 .input:focus {
-  border-color: var(--color-accent);
+  border-color: var(--color-cobalt);
 }
 
 select.input {
   appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237f7f77' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.1rem center;
-  padding-right: 1.5rem;
+  background-position: right 1rem center;
+  padding-right: 2.25rem;
 }
 
-select.input option {
-  background-color: var(--color-ink-card);
-  color: var(--color-bone);
+.squiggle {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
 }
 
 html.lenis,
@@ -223,41 +264,12 @@ html.lenis body {
   }
 }
 
-@keyframes eikon-sheen {
-  from {
-    background-position: 220% 0;
-  }
-  to {
-    background-position: -120% 0;
-  }
-}
-
-.wordmark-sheen {
-  background-image: linear-gradient(
-    100deg,
-    var(--color-bone) 38%,
-    #ffffff 50%,
-    var(--color-bone) 62%
-  );
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: eikon-sheen 9s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wordmark-sheen {
-    animation: none;
-  }
-}
-
 .grain::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

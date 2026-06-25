@@ -8,28 +8,23 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line bg-ink-soft">
+    <footer className="border-t-[1.5px] border-ink bg-paper">
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 text-bone"
+              className="inline-flex items-center gap-3 text-ink"
               aria-label={`${site.name} — home`}
             >
               <EikonIcon className="h-9 w-9" />
-              <span className="text-lg font-medium uppercase tracking-[0.3em]">
-                {site.name}
-              </span>
+              <span className="font-display text-xl">{site.fullName}</span>
             </Link>
-            <p className="mt-5 text-sm leading-relaxed text-muted">
+            <p className="mt-5 text-sm leading-relaxed text-charcoal">
               {site.description}
             </p>
-            <p className="mt-6 inline-flex items-center gap-2 text-sm text-bone">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-              </span>
+            <p className="mt-6 inline-flex items-center gap-2 text-sm text-ink">
+              <span className="h-2 w-2 rounded-full bg-dusty" aria-hidden="true" />
               {site.availability}
             </p>
           </div>
@@ -62,14 +57,13 @@ export function SiteFooter() {
           </FooterColumn>
         </div>
 
-        <div className="mt-16 space-y-4 border-t border-line pt-8">
-          <p className="font-mono text-xs uppercase tracking-[0.16em] text-faint">
-            Typeset in Bricolage Grotesque · Newsreader · Switzer · Geist Mono —
-            built with Next.js
+        <div className="mt-16 space-y-4 border-t-[1.5px] border-line-soft pt-8">
+          <p className="text-xs uppercase tracking-[0.12em] text-faint">
+            Set in Playfair Display &amp; Manrope &mdash; built with Next.js
           </p>
           <div className="flex flex-col gap-2 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
             <p>
-              © {year} {site.name}. All rights reserved.
+              &copy; {year} {site.name}. All rights reserved.
             </p>
             <p>{site.location}</p>
           </div>
@@ -88,7 +82,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-faint">
+      <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-charcoal">
         {title}
       </h3>
       <ul className="mt-5 space-y-3">{children}</ul>
@@ -110,7 +104,7 @@ function FooterLink({
       <Link
         href={href}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        className="text-sm text-muted transition-colors hover:text-bone"
+        className="link-line text-sm text-charcoal transition-colors hover:text-ink"
       >
         {children}
       </Link>

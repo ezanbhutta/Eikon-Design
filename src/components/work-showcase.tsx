@@ -2,63 +2,80 @@ import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/data/projects";
 import { Container } from "@/components/container";
-import { SectionLabel } from "@/components/section-label";
+import { Squiggle } from "@/components/squiggle";
+import { cn } from "@/lib/cn";
 
 export function WorkShowcase() {
   return (
     <section id="work" className="scroll-mt-24 py-20 lg:py-28">
       <Container>
-        <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <SectionLabel>Selected work</SectionLabel>
-            <h2 className="font-display mt-5 max-w-2xl text-4xl leading-[1.02] tracking-tight text-bone sm:text-5xl lg:text-6xl">
-              Recent logos &amp; identities.
-            </h2>
-          </div>
-          <p className="font-mono text-xs uppercase tracking-[0.16em] text-faint">
-            {projects.length} marks · 2024&ndash;25
+        <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <h2 className="font-display text-4xl leading-[1] text-ink sm:text-5xl lg:text-6xl">
+            Selected <em className="font-normal italic">work.</em>
+          </h2>
+          <p className="text-sm text-charcoal">
+            ( {projects.length} recent identities, 2024&ndash;25 )
           </p>
         </header>
 
-        <ul className="mt-12 border-t border-line lg:mt-16">
-          {projects.map((project, i) => (
-            <li key={project.slug}>
-              <Link
-                href={`/work/${project.slug}`}
-                data-cursor-label="View"
-                className="group grid grid-cols-[1fr_auto] items-center gap-x-5 gap-y-3 border-b border-line py-5 sm:grid-cols-[2.5rem_11rem_1fr_auto] sm:gap-6"
-              >
-                <span className="hidden self-center font-mono text-xs text-faint transition-colors duration-300 group-hover:text-accent sm:block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+        <Squiggle
+          variant="wave"
+          className="mt-8 hidden h-5 w-full text-ink opacity-50 sm:block"
+        />
 
-                <div className="order-last col-span-2 aspect-[16/10] w-full overflow-hidden rounded-lg border border-line/60 bg-ink-soft sm:order-none sm:col-span-1 sm:w-44">
+        <div className="mt-12 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-16">
+          {projects.map((project, i) => (
+            <Link
+              key={project.slug}
+              href={`/work/${project.slug}`}
+              data-cursor-label="View"
+              className={cn(
+                "paper-card group block p-8 transition-transform duration-300 hover:-translate-y-1 sm:p-10",
+                i % 2 === 1 && "sm:mt-14",
+              )}
+            >
+              <div className="relative w-fit">
+                <div className="h-36 w-36 overflow-hidden rounded-full border-[1.5px] border-ink bg-paper">
                   <Image
-                    src={project.board}
-                    alt={`${project.name} — ${project.sector}`}
-                    width={440}
-                    height={275}
-                    sizes="(max-width: 640px) 90vw, 11rem"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    src={project.image}
+                    alt={`${project.name} logo`}
+                    width={220}
+                    height={220}
+                    sizes="9rem"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
+                {project.featured && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-1 right-1 flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-ink bg-white text-sm"
+                  >
+                    🏆
+                  </span>
+                )}
+              </div>
 
-                <div className="min-w-0">
-                  <h3 className="font-display text-3xl leading-none tracking-tight text-bone transition-colors duration-300 group-hover:text-accent sm:text-4xl lg:text-5xl">
-                    {project.name}
-                  </h3>
-                  <p className="mt-2 truncate font-serif text-base italic text-muted">
-                    {project.sector}
-                  </p>
-                </div>
+              <div className="mt-7 flex items-baseline gap-3">
+                <span className="font-display text-xl text-ink/40">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-display text-3xl leading-tight text-ink">
+                  {project.name}
+                </h3>
+              </div>
 
-                <div className="text-right font-mono text-xs tracking-widest text-faint sm:self-center">
-                  {project.year}
-                </div>
-              </Link>
-            </li>
+              <p className="mt-1 text-sm font-medium uppercase tracking-[0.02em] text-charcoal">
+                {project.sector}
+              </p>
+              <p className="mt-3 max-w-sm text-sm leading-[1.55] text-charcoal">
+                {project.summary}
+              </p>
+              <span className="ink-link mt-5 inline-block text-sm font-medium">
+                View project &rarr;
+              </span>
+            </Link>
           ))}
-        </ul>
+        </div>
       </Container>
     </section>
   );
