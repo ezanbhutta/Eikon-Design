@@ -43,27 +43,27 @@ export default async function ProjectPage({ params }: { params: Params }) {
           <Reveal>
             <Link
               href="/work"
-              className="link-line text-sm text-muted hover:text-bone"
+              className="ink-link link-line text-sm font-medium"
             >
-              ← Back to work
+              &larr; Back to work
             </Link>
           </Reveal>
 
-          <div className="mt-10 grid gap-8 border-b border-line pb-12 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+          <div className="mt-10 grid gap-8 border-b-[1.5px] border-line-soft pb-12 lg:grid-cols-[1.4fr_1fr] lg:items-end">
             <div>
               <Reveal>
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-                  {project.sector} · {project.year}
+                <p className="text-xs font-medium uppercase tracking-[0.12em] text-charcoal">
+                  ( {project.sector} &middot; {project.year} )
                 </p>
               </Reveal>
               <Reveal delay={80}>
-                <h1 className="font-display mt-5 text-6xl tracking-tight text-bone lg:text-8xl">
+                <h1 className="font-display mt-4 text-6xl text-ink lg:text-8xl">
                   {project.name}
                 </h1>
               </Reveal>
             </div>
             <Reveal delay={140}>
-              <p className="text-lg leading-relaxed text-muted">
+              <p className="text-lg leading-relaxed text-charcoal">
                 {project.summary}
               </p>
             </Reveal>
@@ -74,15 +74,17 @@ export default async function ProjectPage({ params }: { params: Params }) {
       <section className="py-10 lg:py-16">
         <Container>
           <Reveal>
-            <div className="relative aspect-[1600/1078] w-full overflow-hidden rounded-3xl border border-line/60 bg-ink-soft">
-              <Image
-                src={project.board}
-                alt={`${project.name} brand identity presentation`}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 88rem"
-                className="object-cover"
-              />
+            <div className="paper-card p-3">
+              <div className="relative aspect-[1600/1078] w-full overflow-hidden rounded-[24px] bg-paper">
+                <Image
+                  src={project.board}
+                  alt={`${project.name} brand identity presentation`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 80rem"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </Reveal>
         </Container>
@@ -90,7 +92,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
       <section className="py-8 lg:py-12">
         <Container>
-          <div className="grid gap-12 border-t border-line pt-10 lg:grid-cols-3">
+          <div className="grid gap-10 border-t-[1.5px] border-line-soft pt-10 lg:grid-cols-3">
             <Detail term="Year" value={`${project.year}`} />
             <Detail term="Services" value={project.services.join(", ")} />
             <Detail term="Discipline" value="Logo & Brand Identity" />
@@ -98,23 +100,23 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </Container>
       </section>
 
-      <section className="mt-8 border-t border-line py-16">
+      <section className="mt-8 py-16">
         <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-faint">
-            Next project
+          <span className="text-xs font-medium uppercase tracking-[0.12em] text-charcoal">
+            ( Next project )
           </span>
           <Link
             href={`/work/${next.slug}`}
-            className="font-display text-3xl tracking-tight text-bone transition-colors hover:text-accent sm:text-4xl"
+            className="font-display text-3xl text-ink transition-colors hover:text-accent sm:text-4xl"
           >
-            {next.name} →
+            {next.name} &rarr;
           </Link>
         </Container>
       </section>
 
-      <section className="border-t border-line py-16">
+      <section className="border-t-[1.5px] border-line-soft py-16">
         <Container>
-          <ArrowLink href={site.fiverrGig} external className="text-bone">
+          <ArrowLink href={site.fiverrGig} external className="ink-link">
             Start a project on Fiverr
           </ArrowLink>
         </Container>
@@ -126,10 +128,10 @@ export default async function ProjectPage({ params }: { params: Params }) {
 function Detail({ term, value }: { term: string; value: string }) {
   return (
     <div>
-      <dt className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
+      <dt className="text-xs font-medium uppercase tracking-[0.12em] text-charcoal">
         {term}
       </dt>
-      <dd className="mt-2 text-bone">{value}</dd>
+      <dd className="font-display mt-2 text-xl text-ink">{value}</dd>
     </div>
   );
 }

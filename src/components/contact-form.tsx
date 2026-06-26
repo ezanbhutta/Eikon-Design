@@ -54,20 +54,20 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="h-fit rounded-3xl border border-line bg-ink-soft p-8 sm:p-10">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-          Brief received
+      <div className="paper-card h-fit p-8 sm:p-10">
+        <p className="text-xs font-medium uppercase tracking-[0.12em] text-accent">
+          ( Brief received )
         </p>
-        <p className="font-display mt-5 text-2xl text-bone">
-          Thanks{name ? `, ${name.split(" ")[0]}` : ""} — it&rsquo;s in.
+        <p className="font-display mt-5 text-3xl text-ink">
+          Thanks{name ? `, ${name.split(" ")[0]}` : ""} &mdash; it&rsquo;s in.
         </p>
-        <p className="mt-3 text-muted">
+        <p className="mt-3 text-charcoal">
           We usually reply within the hour. If it&rsquo;s urgent, you can also{" "}
           <a
             href={site.fiverr}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-line text-bone"
+            className="ink-link link-line"
           >
             message us on Fiverr
           </a>
@@ -78,15 +78,12 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="h-fit rounded-3xl border border-line bg-ink-soft p-8 sm:p-10"
-    >
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-faint">
-        Tell us about the project
+    <form onSubmit={onSubmit} className="paper-card h-fit p-8 sm:p-10">
+      <p className="text-xs font-medium uppercase tracking-[0.12em] text-charcoal">
+        ( Tell us about the project )
       </p>
 
-      <div className="mt-7 space-y-6">
+      <div className="mt-7 space-y-5">
         <Field label="Name" htmlFor="name">
           <input
             id="name"
@@ -109,7 +106,7 @@ export function ContactForm() {
           />
         </Field>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           <Field label="Project" htmlFor="project">
             <select id="project" name="project" defaultValue="Logo" className="input">
               <option>Logo</option>
@@ -153,7 +150,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-accent-ink transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-70"
+        className="pill pill-accent mt-8 w-full disabled:opacity-70"
       >
         {status === "submitting" ? "Sending…" : "Send brief"}
       </button>
@@ -165,7 +162,7 @@ export function ContactForm() {
             href={site.fiverr}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-line"
+            className="ink-link link-line"
           >
             message us on Fiverr
           </a>{" "}
@@ -173,13 +170,13 @@ export function ContactForm() {
         </p>
       )}
       {status === "unconfigured" && (
-        <p className="mt-4 text-sm text-muted">
-          Direct messaging isn&rsquo;t live yet —{" "}
+        <p className="mt-4 text-sm text-charcoal">
+          Direct messaging isn&rsquo;t live yet &mdash;{" "}
           <a
             href={site.fiverr}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-line text-bone"
+            className="ink-link link-line"
           >
             message us on Fiverr
           </a>{" "}
@@ -201,7 +198,7 @@ function Field({
 }) {
   return (
     <label htmlFor={htmlFor} className="block">
-      <span className="font-mono text-xs uppercase tracking-[0.16em] text-faint">
+      <span className="text-xs font-medium uppercase tracking-[0.1em] text-charcoal">
         {label}
       </span>
       <span className="mt-2 block">{children}</span>

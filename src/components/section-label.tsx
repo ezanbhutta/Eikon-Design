@@ -12,16 +12,12 @@ export function SectionLabel({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.28em]",
-        tone === "dark" ? "text-faint" : "text-paper-muted",
+        "inline-block text-xs font-medium uppercase tracking-[0.1em]",
+        tone === "dark" ? "text-charcoal" : "text-paper/70",
         className,
       )}
     >
-      <span
-        aria-hidden="true"
-        className="h-px w-7 bg-current opacity-50"
-      />
-      {children}
+      ( {children} )
     </span>
   );
 }
