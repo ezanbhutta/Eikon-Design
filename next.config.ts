@@ -5,11 +5,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: [
-      "@react-three/drei",
-      "@react-three/fiber",
-      "motion",
-    ],
+    optimizePackageImports: ["motion"],
   },
 };
 
