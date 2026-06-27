@@ -199,10 +199,16 @@ function Process() {
 
 function Philosophy() {
   return (
-    <section className="relative overflow-hidden bg-charcoal text-paper">
+    <section className="bg-brand relative overflow-hidden text-white">
       <Squiggle
+        solid
         variant="loop"
-        className="absolute left-[8%] top-16 hidden h-16 w-24 text-paper opacity-30 lg:block"
+        className="absolute left-[8%] top-16 hidden h-16 w-24 text-white opacity-50 lg:block"
+      />
+      <Squiggle
+        solid
+        variant="scribble"
+        className="absolute right-[9%] bottom-14 hidden h-16 w-16 text-white opacity-40 lg:block"
       />
       <Container className="py-24 text-center lg:py-32">
         <Reveal>
@@ -212,14 +218,17 @@ function Philosophy() {
           </blockquote>
         </Reveal>
         <Reveal>
-          <p className="mt-8 text-sm text-paper/70">
+          <p className="mt-8 text-sm text-white/80">
             ( 389 five-star reviews &middot; 4.9&#9733; average &middot; replies
             within the hour, in five languages )
           </p>
         </Reveal>
         <Reveal>
           <div className="mt-8">
-            <Link href="/studio" className="ink-link link-line font-medium">
+            <Link
+              href="/studio"
+              className="link-line font-medium text-white"
+            >
               More about the studio &rarr;
             </Link>
           </div>

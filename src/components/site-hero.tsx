@@ -87,7 +87,7 @@ export function SiteHero() {
             variants={fadeUp}
             className="mt-11 flex flex-col items-center justify-center gap-6 sm:flex-row"
           >
-            <Link href="/work" className="pill">
+            <Link href="/work" className="pill pill-accent">
               See the work
             </Link>
             <Link

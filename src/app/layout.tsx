@@ -70,6 +70,15 @@ export default function RootLayout({
       className={`${playfair.variable} ${manrope.variable}`}
     >
       <body className="grain min-h-dvh antialiased">
+        <svg aria-hidden="true" focusable="false" width="0" height="0" className="absolute">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ff2f87" />
+              <stop offset="55%" stopColor="#ff6a45" />
+              <stop offset="100%" stopColor="#ff9a3d" />
+            </linearGradient>
+          </defs>
+        </svg>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-bone focus:px-5 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"

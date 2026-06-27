@@ -28,9 +28,11 @@ const paths: Record<Variant, { box: string; d: string }> = {
 export function Squiggle({
   variant = "wave",
   className,
+  solid = false,
 }: {
   variant?: Variant;
   className?: string;
+  solid?: boolean;
 }) {
   const { box, d } = paths[variant];
   return (
@@ -41,7 +43,11 @@ export function Squiggle({
       preserveAspectRatio="none"
       className={cn("pointer-events-none", className)}
     >
-      <path d={d} className="squiggle" vectorEffect="non-scaling-stroke" />
+      <path
+        d={d}
+        className={cn("squiggle", solid && "squiggle-solid")}
+        vectorEffect="non-scaling-stroke"
+      />
     </svg>
   );
 }
