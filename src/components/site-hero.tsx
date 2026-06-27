@@ -45,7 +45,7 @@ export function SiteHero() {
             variants={fadeUp}
             className="text-sm font-medium uppercase tracking-[0.04em] text-charcoal"
           >
-            ( {site.fullName} — est. {site.founded} )
+            ( {site.fullName} · est. {site.founded} )
           </motion.p>
 
           <motion.h1
@@ -79,7 +79,7 @@ export function SiteHero() {
             className="mx-auto mt-9 max-w-md text-base leading-[1.55] text-charcoal"
           >
             ( A small logo &amp; brand identity studio in Multan, working with
-            founders worldwide. Clean, modern marks &mdash; and the full kit
+            founders worldwide. Clean, modern marks, and the full kit
             around them. )
           </motion.p>
 

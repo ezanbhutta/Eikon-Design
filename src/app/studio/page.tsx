@@ -56,13 +56,13 @@ export default function StudioPage() {
               <p>
                 Eikon Designs is a small, independent studio. Over the last few
                 years we&rsquo;ve made logos and full brand kits for hundreds of
-                founders and small teams around the world &mdash; and earned 389
+                founders and small teams around the world, and earned 389
                 five-star reviews doing it.
               </p>
               <p>
                 We keep things small on purpose: the person you talk to is the
                 person doing the work. No handoffs, no juniors learning on your
-                budget &mdash; just clean, modern design and unlimited revisions
+                budget. Just clean, modern design and unlimited revisions
                 until it feels right.
               </p>
             </div>

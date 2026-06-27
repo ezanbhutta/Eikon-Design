@@ -6,7 +6,7 @@ export const site = {
   description:
     "Eikon Designs is a small studio making clean, modern logos and complete brand kits for founders around the world.",
   url: "https://eikon.design",
-  location: "Multan, Pakistan — working worldwide",
+  location: "Multan, Pakistan · working worldwide",
   availability: "Available for new projects",
   founded: 2021,
 

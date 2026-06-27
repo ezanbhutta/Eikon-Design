@@ -9,7 +9,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Recent logo and branding projects from Eikon Designs — clean, modern identities for founders around the world.",
+    "Recent logo and branding projects from Eikon Designs. Clean, modern identities for founders around the world.",
 };
 
 export default function WorkPage() {
@@ -27,7 +27,7 @@ export default function WorkPage() {
             </h1>
             <p className="mt-6 max-w-xl text-charcoal">
               ( A selection of recent projects. Each one started as a rough idea
-              and a blank page &mdash; here&rsquo;s where they landed. )
+              and a blank page. Here&rsquo;s where they landed. )
             </p>
           </Reveal>
           <Squiggle

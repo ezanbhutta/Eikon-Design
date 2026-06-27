@@ -8,7 +8,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a logo or brand identity project with Eikon Designs. Message us on Fiverr or order a package directly — 389 five-star reviews.",
+    "Start a logo or brand identity project with Eikon Designs. Message us on Fiverr or order a package directly. 389 five-star reviews.",
 };
 
 const checklist = [
@@ -41,7 +41,7 @@ export default function ContactPage() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-7 max-w-md text-lg leading-[1.55] text-charcoal">
-                ( We work through Fiverr &mdash; message us for a custom quote, or
+                ( We work through Fiverr. Message us for a custom quote, or
                 order a package directly. As a Level&nbsp;2 seller we usually
                 reply within the hour. )
               </p>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="ink-link link-line"
                   >
-                    Behance &mdash; {site.name.toLowerCase()} works
+                    Behance &middot; {site.name.toLowerCase()} works
                   </Link>
                 </ContactDetail>
                 <ContactDetail label="Studio">{site.location}</ContactDetail>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 ))}
               </ul>
               <p className="mt-7 text-sm leading-[1.55] text-charcoal">
-                Have your own idea or references? Even better &mdash; send them
+                Have your own idea or references? Even better. Send them
                 along on Fiverr and we&rsquo;ll take it from there.
               </p>
             </div>

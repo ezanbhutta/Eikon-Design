@@ -10,14 +10,14 @@ export const services: Service[] = [
     id: "logo",
     title: "Logo Design",
     description:
-      "A clean, modern logo that actually suits your business — plus the app icon, favicon, font and colours that go with it.",
+      "A clean, modern logo that actually suits your business, plus the app icon, favicon, font and colours that go with it.",
     deliverables: ["Logo concepts", "App icon", "Favicon", "Brand font & colours"],
   },
   {
     id: "identity",
     title: "Brand Identity",
     description:
-      "The full visual language: colour palette, type, and every logo variation you'll need — horizontal, vertical, black & white.",
+      "The full visual language: colour palette, type, and every logo variation you'll need: horizontal, vertical, black & white.",
     deliverables: ["Type system", "Colour palette", "Logo variations", "Iconography"],
   },
   {
@@ -47,7 +47,7 @@ export const process: ProcessStep[] = [
     index: "01",
     title: "Discover",
     description:
-      "Tell us about your business, who it's for, and the feel you're after — as much or as little as you've got. We'll work with it.",
+      "Tell us about your business, who it's for, and the feel you're after, as much or as little as you've got. We'll work with it.",
   },
   {
     index: "02",
@@ -59,7 +59,7 @@ export const process: ProcessStep[] = [
     index: "03",
     title: "Refine",
     description:
-      "Pick a direction and we refine it with you — unlimited revisions until the spacing, the curves, every detail feels right.",
+      "Pick a direction and we refine it with you. Unlimited revisions until the spacing, the curves, every detail feels right.",
   },
   {
     index: "04",
@@ -90,7 +90,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Outstanding designer with an eye for clean and modern aesthetics. He delivered a minimalist brand logo that truly captures the brand's essence — very professional, timely, and highly recommended.",
+      "Outstanding designer with an eye for clean and modern aesthetics. He delivered a minimalist brand logo that truly captures the brand's essence. Very professional, timely, and highly recommended.",
     author: "freddiestock",
     role: "Fiverr client · New Zealand",
   },
@@ -102,7 +102,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The seller understood the concept perfectly and delivered a clean, professional design. The final files were well organised and neatly arranged — highly satisfied with the result.",
+      "The seller understood the concept perfectly and delivered a clean, professional design. The final files were well organised and neatly arranged. Highly satisfied with the result.",
     author: "maddoxsterling5",
     role: "Fiverr client · Germany",
   },
@@ -166,7 +166,7 @@ export const packages: Package[] = [
     price: "$165",
     summary: "Complete Branding Kit",
     features: [
-      "3–4 logo concepts",
+      "3 to 4 logo concepts",
       "Full identity & variations",
       "Stationery + business card",
       "Social kit · 6 platforms",

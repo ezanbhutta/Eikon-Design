@@ -56,9 +56,9 @@ function Services() {
             <Reveal>
               <span className="font-display text-2xl italic text-ink/35">01</span>
               <h2 className="font-display mt-3 text-4xl leading-[1.05] text-ink sm:text-5xl">
-                We make logos &mdash;{" "}
+                We make logos.{" "}
                 <em className="font-normal italic">
-                  and everything around them.
+                  And everything around them.
                 </em>
               </h2>
               <p className="mt-6 max-w-md text-charcoal">
@@ -103,7 +103,7 @@ function Pricing() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="font-display text-2xl italic text-ink/35">02</span>
           <h2 className="font-display mt-3 text-4xl leading-[1.05] text-ink sm:text-5xl">
-            Three ways to <em className="font-normal italic">start.</em>
+            Pick your <em className="font-normal italic">package.</em>
           </h2>
           <p className="mt-5 text-charcoal">
             ( Ordered through Fiverr &middot; unlimited revisions &middot; 389
@@ -130,16 +130,17 @@ function Pricing() {
                     </span>
                   )}
                 </div>
-                <p className="font-display mt-5 text-6xl text-ink">
+                <p className="mt-5 text-6xl font-semibold tabular-nums text-ink">
                   {pkg.price}
                 </p>
                 <p className="mt-2 text-sm text-charcoal">{pkg.summary}</p>
                 <ul className="mt-7 flex-1 space-y-2.5 text-sm text-charcoal">
                   {pkg.features.map((f) => (
-                    <li key={f} className="flex gap-2.5">
-                      <span aria-hidden="true" className="text-ink/40">
-                        &mdash;
-                      </span>
+                    <li key={f} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent"
+                      />
                       {f}
                     </li>
                   ))}
@@ -260,7 +261,7 @@ function Voices() {
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <figcaption className="mt-6 text-sm text-charcoal">
-                  <span className="font-medium text-ink">{t.author}</span> &mdash;{" "}
+                  <span className="font-medium text-ink">{t.author}</span>,{" "}
                   {t.role}
                 </figcaption>
               </figure>
@@ -288,8 +289,8 @@ function ClosingCta() {
         </Reveal>
         <Reveal>
           <p className="mx-auto mt-6 max-w-md text-charcoal">
-            ( Got a business that deserves a sharper mark? Tell us about it &mdash;
-            we&rsquo;ll take it from there. )
+            ( Got a business that deserves a sharper mark? Tell us about it.
+            We&rsquo;ll take it from there. )
           </p>
         </Reveal>
         <Reveal>

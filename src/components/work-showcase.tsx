@@ -14,7 +14,7 @@ export function WorkShowcase() {
             Selected <em className="font-normal italic">work.</em>
           </h2>
           <p className="text-sm text-charcoal">
-            ( {projects.length} recent identities, 2024&ndash;25 )
+            {`( ${projects.length} recent identities )`}
           </p>
         </header>
 
