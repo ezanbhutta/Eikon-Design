@@ -3,6 +3,7 @@ import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { Squiggle } from "@/components/squiggle";
 import { SiteHero } from "@/components/site-hero";
+import { ScrollLine } from "@/components/scroll-line";
 import { WorkShowcase } from "@/components/work-showcase";
 import { services, process, testimonials, clients, packages } from "@/data/studio";
 import { site } from "@/data/site";
@@ -10,7 +11,8 @@ import { cn } from "@/lib/cn";
 
 export default function Home() {
   return (
-    <>
+    <div className="relative isolate">
+      <ScrollLine />
       <SiteHero />
       <ClientStrip />
       <WorkShowcase />
@@ -20,7 +22,7 @@ export default function Home() {
       <Philosophy />
       <Voices />
       <ClosingCta />
-    </>
+    </div>
   );
 }
 
@@ -37,8 +39,12 @@ function ClientStrip() {
         <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 font-display text-lg text-ink/70 sm:text-xl">
           {clients.map((name, i) => (
             <li key={name} className="flex items-center gap-3">
-              {i > 0 && <span className="text-dusty">/</span>}
               {name}
+              {i < clients.length - 1 && (
+                <span className="text-dusty" aria-hidden="true">
+                  /
+                </span>
+              )}
             </li>
           ))}
         </ul>
