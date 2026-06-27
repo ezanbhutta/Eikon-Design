@@ -3,14 +3,22 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { Squiggle } from "@/components/squiggle";
-import { ContactForm } from "@/components/contact-form";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a logo or brand identity project with Eikon Designs. Send us a brief or message us on Fiverr — 389 five-star reviews.",
+    "Start a logo or brand identity project with Eikon Designs. Message us on Fiverr or order a package directly — 389 five-star reviews.",
 };
+
+const checklist = [
+  "Company name",
+  "What your business does",
+  "Tagline (optional)",
+  "A style or feel you're after",
+  "Colours you like (optional)",
+  "Logos you admire (optional)",
+];
 
 export default function ContactPage() {
   return (
@@ -33,9 +41,9 @@ export default function ContactPage() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-7 max-w-md text-lg leading-[1.55] text-charcoal">
-                ( Tell us about your project and we&rsquo;ll get back within the
-                hour. Prefer Fiverr? That works too &mdash; we&rsquo;re a
-                Level&nbsp;2 seller with 389 five-star reviews. )
+                ( We work through Fiverr &mdash; message us for a custom quote, or
+                order a package directly. As a Level&nbsp;2 seller we usually
+                reply within the hour. )
               </p>
             </Reveal>
 
@@ -50,14 +58,22 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal delay={280}>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   href={site.fiverr}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pill"
+                  className="pill pill-accent"
                 >
                   Message us on Fiverr
+                </Link>
+                <Link
+                  href={site.fiverrGig}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pill"
+                >
+                  Order a package
                 </Link>
               </div>
             </Reveal>
@@ -84,7 +100,28 @@ export default function ContactPage() {
           </div>
 
           <Reveal delay={140}>
-            <ContactForm />
+            <div className="paper-card h-fit p-8 sm:p-10">
+              <p className="text-xs font-medium uppercase tracking-[0.12em] text-charcoal">
+                ( To get started, send )
+              </p>
+              <ul className="mt-7 space-y-4">
+                {checklist.map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-baseline gap-4 border-b-[1.5px] border-line-soft pb-4 last:border-0"
+                  >
+                    <span className="font-display text-sm italic text-ink/40">
+                      0{i + 1}
+                    </span>
+                    <span className="text-ink">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-7 text-sm leading-[1.55] text-charcoal">
+                Have your own idea or references? Even better &mdash; send them
+                along on Fiverr and we&rsquo;ll take it from there.
+              </p>
+            </div>
           </Reveal>
         </div>
       </Container>

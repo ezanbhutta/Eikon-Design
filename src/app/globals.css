@@ -202,37 +202,6 @@
   color: var(--color-paper);
 }
 
-.input {
-  display: block;
-  width: 100%;
-  border: 1.5px solid var(--color-dusty);
-  border-radius: 30px;
-  background-color: var(--color-white);
-  padding: 0.85rem 1.25rem;
-  color: #000000;
-  font-size: 1rem;
-  line-height: 1.5;
-  outline: none;
-  transition: border-color 0.3s var(--ease-out-expo);
-}
-
-.input::placeholder {
-  color: #828282;
-}
-
-.input:focus {
-  border-color: var(--color-cobalt);
-}
-
-select.input {
-  appearance: none;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.25rem;
-}
-
 .squiggle {
   stroke: currentColor;
   stroke-width: 1.5;
