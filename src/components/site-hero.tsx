@@ -45,7 +45,7 @@ export function SiteHero() {
             variants={fadeUp}
             className="text-sm font-medium uppercase tracking-[0.04em] text-charcoal"
           >
-            ( {site.fullName} · est. {site.founded} )
+            ( {site.fullName} / est. {site.founded} )
           </motion.p>
 
           <motion.h1

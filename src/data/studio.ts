@@ -92,25 +92,25 @@ export const testimonials: Testimonial[] = [
     quote:
       "Outstanding designer with an eye for clean and modern aesthetics. He delivered a minimalist brand logo that truly captures the brand's essence. Very professional, timely, and highly recommended.",
     author: "freddiestock",
-    role: "Fiverr client · New Zealand",
+    role: "Fiverr client / New Zealand",
   },
   {
     quote:
       "Truly worth the investment. I trusted them with full creative control and they delivered something far beyond what I had imagined.",
     author: "flintbriar",
-    role: "Fiverr client · United Kingdom",
+    role: "Fiverr client / United Kingdom",
   },
   {
     quote:
       "The seller understood the concept perfectly and delivered a clean, professional design. The final files were well organised and neatly arranged. Highly satisfied with the result.",
     author: "maddoxsterling5",
-    role: "Fiverr client · Germany",
+    role: "Fiverr client / Germany",
   },
   {
     quote:
       "Super happy with the brand guidelines and social media kit. We will definitely come back when needed.",
     author: "a_alpha",
-    role: "Fiverr client · Aruba",
+    role: "Fiverr client / Aruba",
   },
 ];
 
@@ -169,7 +169,7 @@ export const packages: Package[] = [
       "3 to 4 logo concepts",
       "Full identity & variations",
       "Stationery + business card",
-      "Social kit · 6 platforms",
+      "Social kit / 6 platforms",
       "3D mockups",
       "Vector + all source files",
       "Free consultation",

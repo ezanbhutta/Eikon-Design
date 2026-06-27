@@ -37,7 +37,7 @@ function ClientStrip() {
         <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 font-display text-lg text-ink/70 sm:text-xl">
           {clients.map((name, i) => (
             <li key={name} className="flex items-center gap-3">
-              {i > 0 && <span className="text-dusty">&middot;</span>}
+              {i > 0 && <span className="text-dusty">/</span>}
               {name}
             </li>
           ))}
@@ -84,7 +84,7 @@ function Services() {
                     {service.description}
                   </p>
                   <p className="mt-3 text-sm text-charcoal/75">
-                    {service.deliverables.join("  ·  ")}
+                    {service.deliverables.join("  /  ")}
                   </p>
                 </div>
               </Reveal>
@@ -106,7 +106,7 @@ function Pricing() {
             Pick your <em className="font-normal italic">package.</em>
           </h2>
           <p className="mt-5 text-charcoal">
-            ( Ordered through Fiverr &middot; unlimited revisions &middot; 389
+            ( Ordered through Fiverr / unlimited revisions / 389
             five-star reviews )
           </p>
         </Reveal>
@@ -220,7 +220,7 @@ function Philosophy() {
         </Reveal>
         <Reveal>
           <p className="mt-8 text-sm text-white/80">
-            ( 389 five-star reviews &middot; 4.9&#9733; average &middot; replies
+            ( 389 five-star reviews / 4.9&#9733; average / replies
             within the hour, in five languages )
           </p>
         </Reveal>

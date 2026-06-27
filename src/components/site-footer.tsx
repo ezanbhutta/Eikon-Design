@@ -59,7 +59,7 @@ export function SiteFooter() {
 
         <div className="mt-16 space-y-4 border-t-[1.5px] border-line-soft pt-8">
           <p className="text-xs uppercase tracking-[0.12em] text-faint">
-            Set in Playfair Display &amp; Manrope &middot; built with Next.js
+            Set in Playfair Display &amp; Manrope / built with Next.js
           </p>
           <div className="flex flex-col gap-2 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
             <p>

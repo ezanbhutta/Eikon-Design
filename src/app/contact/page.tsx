@@ -50,9 +50,9 @@ export default function ContactPage() {
             <Reveal delay={220}>
               <div className="mt-9 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-[0.08em] text-charcoal">
                 <span className="text-accent">389 five-star reviews</span>
-                <span className="text-dusty">&middot;</span>
+                <span className="text-dusty">/</span>
                 <span>4.9&#9733; rating</span>
-                <span className="text-dusty">&middot;</span>
+                <span className="text-dusty">/</span>
                 <span>Level 2 seller</span>
               </div>
             </Reveal>
@@ -87,13 +87,12 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="ink-link link-line"
                   >
-                    Behance &middot; {site.name.toLowerCase()} works
+                    {site.name.toLowerCase()} on Behance
                   </Link>
                 </ContactDetail>
                 <ContactDetail label="Studio">{site.location}</ContactDetail>
                 <ContactDetail label="Languages">
-                  English &middot; Urdu &middot; German &middot; French &middot;
-                  Spanish
+                  English / Urdu / German / French / Spanish
                 </ContactDetail>
               </div>
             </Reveal>

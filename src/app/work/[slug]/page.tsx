@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
             <div>
               <Reveal>
                 <p className="text-xs font-medium uppercase tracking-[0.12em] text-charcoal">
-                  ( {project.sector} &middot; {project.year} )
+                  ( {project.sector} / {project.year} )
                 </p>
               </Reveal>
               <Reveal delay={80}>
