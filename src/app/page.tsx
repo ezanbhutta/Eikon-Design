@@ -3,7 +3,6 @@ import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { Squiggle } from "@/components/squiggle";
 import { SiteHero } from "@/components/site-hero";
-import { ScrollLine } from "@/components/scroll-line";
 import { WorkShowcase } from "@/components/work-showcase";
 import { services, process, testimonials, clients, packages } from "@/data/studio";
 import { site } from "@/data/site";
@@ -11,8 +10,7 @@ import { cn } from "@/lib/cn";
 
 export default function Home() {
   return (
-    <div className="relative isolate">
-      <ScrollLine />
+    <>
       <SiteHero />
       <ClientStrip />
       <WorkShowcase />
@@ -22,7 +20,7 @@ export default function Home() {
       <Philosophy />
       <Voices />
       <ClosingCta />
-    </div>
+    </>
   );
 }
 
